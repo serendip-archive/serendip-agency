@@ -1,0 +1,19 @@
+{
+  "name": "serendip-agency",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Mohsen Esmaeili <m-esm@hotmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-livereload": "^4.0.1",
+    "serendip-web": "^1.0.10"
+  }
+}

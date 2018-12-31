@@ -1,0 +1,64 @@
+#home-page {
+  .astro {
+    position: relative;
+
+    img.bg {
+      width: 100%;
+      display: block;
+    }
+    div {
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &:after {
+      display: block;
+      content: " ";
+      background: url("/assets/svg/9.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left top;
+      width: 30%;
+      height: 80%;
+      position: absolute;
+      top: 0;
+      left: 25%;
+      z-index: 20;
+    }
+
+    .half-moon {
+      background-image: url("/assets/svg/6.svg");
+
+      width: 30%;
+      height: 60%;
+      top: 0;
+      left: 0;
+    }
+
+    .small-moon{
+        background-image: url("/assets/svg/7.svg");
+        width: 10%;
+        height: 10%;
+        bottom: 30%;
+        left: 10%;
+    }
+    .extra-small-moon{
+        background-image: url("/assets/svg/8.svg");
+        width: 5%;
+        height: 5%;
+        top: 30%;
+        left: 60%;
+
+
+    }
+
+    .text-logo {
+        background-image: url("/assets/svg/10.svg");
+
+        width: 30%;
+        height: 20%;
+        top: 40%;
+        left: 50%;
+    }
+  }
+}
