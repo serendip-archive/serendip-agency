@@ -1,42 +1,186 @@
-nav#nav {
+button#nav-toggle,
+nav#nav .close {
+  width: 100px;
+  height: 100px;
+  top: 75px;
+  right: -10px;
+  content: " ";
+  display: block;
+  border: none;
+  outline: none;
+}
+button#nav-toggle {
   position: fixed;
-  top: 80px;
-  right: 0;
-  height: 100vh;
-  width: 70px;
-  padding: 0 5px;
-  background: #fff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+  background: url(/assets/svg/5.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 99;
+}
+nav#nav {
   box-sizing: border-box;
   z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+
+  .close {
+    z-index: 101;
+    position: absolute;
+    background: #dbbb82;
+    border-radius: 0 0 0 100%;
+
+    &:before,
+    &:after {
+      position: absolute;
+      top:40%;
+      left: 35%;
+      height: 2px;
+      background: #BAA581;
+      content: " ";
+      display: block;
+      width: 50%;
+    }
+
+    &:before{
+      transform:rotate(45deg);
+      }
+
+    &:after{
+      transform:rotate(-45deg);
+      }
+  }
+  &:before {
+    display: block;
+
+    content: " ";
+
+    position: absolute;
+    top: -100vw;
+    right: -100vw;
+    height: 100vw;
+    width: 100vw;
+    background: rgba(87, 110, 158, 0.75);
+    background: rgba(219, 186, 130, 0.85);
+    border-radius: 0 0 0 90%;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.15), 100px 0 300px rgba(0, 0, 0, 0.15) inset;
+    z-index: 0;
+    transition: all ease 0.5s;
+  }
+
+  &.active {
+    &:before {
+      top: 0;
+      right: -50vw;
+    }
+  }
+
   ul {
+    position: absolute;
+    top: 120px;
+    right: 60px;
+
+    height: 80vh;
+    z-index: 3;
+    direction: ltr;
+    width: 300px;
+    padding: 0 15px 0 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 2px solid transparent;
+
+    &:hover {
+      overflow-y: scroll;
+      border-right: none;
+    }
+
+    &::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
     li {
       display: block;
       width: 100%;
-      margin: 10px 0;
-      height: 60px;
+      margin: 0 0 5px 0;
+      position: relative;
+      direction: rtl;
+      text-align: right;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      &:after,
+      &:before {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        display: block;
+        content: " ";
+        right: 0;
+      }
+
+      &:after {
+        background-image: linear-gradient(
+          to left,
+          rgba(69, 62, 93, 0.2),
+          rgba(74, 69, 143, 0.05)
+        );
+        top: 0px;
+      }
+      &:before {
+        background-image: linear-gradient(
+          to left,
+          rgba(255, 255, 255, 0.85),
+          rgba(255, 255, 255, 0.1)
+        );
+        top: 1px;
+      }
+
+      &:first-child:after,
+      &:first-child:before {
+        display: none !important;
+      }
 
       a {
-        float: right;
-        font-size: @size1;
+        font-size: @size3;
 
-        text-decoration: none;
         width: 100%;
         display: block;
-        color: #777;
-        line-height: 10px;
-        display: block;
-        text-align: center;
+        text-decoration: none;
 
+        color: #fff;
+        color: #333;
+        // text-shadow: -1px 1px 0px rgba(255, 255, 255, 0.5);
+        height: 44px;
+        line-height: 44px;
+        font-weight: 300;
         .icon {
-          width: 38px;
-          height: 38px;
-          display: block;
-          margin: 0 auto;
-          margin-bottom: 2px;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          box-shadow: -2px 2px 0px rgba(255, 255, 255, 0.5);
+          box-shadow: -1px 1px 0px rgba(0, 0, 0, 0.15);
+          box-sizing: border-box;
+          margin-left: 5px;
           line-height: 0;
-          border: 1px solid #ddd;
           border-radius: 100%;
+          vertical-align: middle;
+
+          img {
+            // filter: invert(1);
+          }
         }
       }
     }

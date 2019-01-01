@@ -4,35 +4,36 @@ header {
   height: 80px;
   box-sizing: border-box;
   padding: 15px;
-position: relative;
-z-index: 90;
-  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+  position: fixed;
+  width:100%;
+  z-index: 200;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   background: #fff;
   img {
     vertical-align: top;
     width: 100%;
   }
 
-  .account{
-   
-      float: right;
-      font-size: @size2;
-      text-align: center;
-      line-height: 0;
-      text-decoration: none;
-      height:50px;
-padding-left: 15px;
-      span {
-        line-height: 10px;
-      }
-      img{
-        width: 40px;
-        height:40px;
-        display: block;
-        padding: 2px;
-        margin: 0 auto;
-      }
-     
+  .account {
+    float: right;
+    font-size: @size2;
+    text-align: center;
+    line-height: 0;
+    text-decoration: none;
+    height: 50px;
+    padding-left: 15px;
+
+
+    span {
+      line-height: 10px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      display: block;
+      padding: 2px;
+      margin: 0 auto;
+    }
   }
   .logo {
     float: left;
@@ -49,13 +50,12 @@ padding-left: 15px;
     width: 175px;
   }
 
-
   .search {
     float: right;
     width: 40%;
     min-width: 200px;
     position: relative;
-margin-right: 10px;
+    margin-right: 10px;
     input {
       vertical-align: top;
       width: 100%;
@@ -65,7 +65,7 @@ margin-right: 10px;
       border-radius: 30px;
       border: 1px solid #ddd;
       outline: none;
-      padding: 0  45px 0 15px ;
+      padding: 0 45px 0 15px;
     }
 
     img {
@@ -74,19 +74,14 @@ margin-right: 10px;
       height: 20px;
       top: 15px;
       right: 15px;
-
     }
   }
 }
 
-
-@media (max-width:600px){
-
-  header{
-
-    .search{
+@media (max-width: 600px) {
+  header {
+    .search {
       display: none;
     }
   }
-
 }
