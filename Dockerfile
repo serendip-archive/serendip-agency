@@ -15,5 +15,3 @@ RUN npm i -g serendip-web
 COPY . /website/
 
 RUN serendip-web --dir=/website
-
-EXPOSE 2080
