@@ -1090,8 +1090,16 @@ img {
   max-width: 100%;
   box-sizing: border-box;
 }
-div {
-  height: 100%;
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+p {
+  user-select: text;
 }
 div,
 img,
@@ -1108,17 +1116,21 @@ button {
   font-family: iranyekan;
   color: #777;
 }
+body {
+  font-size: 13px;
+  overflow: hidden;
+}
+body.scroll {
+  overflow-y: auto;
+}
 .en {
   font-family: sans-serif;
-}
-.inner-body {
-  padding-right: 60px;
 }
 .clear,
 .clearfix {
   clear: both;
   display: block;
-  content: ' ';
+  content: " ";
 }
 .container {
   box-sizing: border-box;
@@ -1126,8 +1138,127 @@ button {
   padding: 0 30px;
   margin: 0 auto;
 }
-button#nav-toggle,
-nav#nav .close {
+.double-block {
+  margin: 120px 0;
+  position: relative;
+  text-align: center;
+}
+.double-block.has-fixed {
+  height: 50vh;
+  margin: 60px 0;
+  text-align: right;
+}
+.double-block .block {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+  direction: rtl;
+  text-align: start;
+  margin: 0 2.5%;
+}
+.double-block .block .title {
+  color: #333;
+  font-weight: bold;
+  margin: 0 0 0 0;
+  font-size: 1.6em;
+}
+.double-block .block p {
+  padding: 30px;
+  color: #444;
+  line-height: 1.5;
+  text-align: justify;
+  font-size: 1em;
+}
+.double-block .block.static-right {
+  padding: 60px 5% 0 0;
+  margin: 0;
+  width: 50%;
+}
+.double-block .block.fixed-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-left: 4px solid #dbbb82;
+}
+body.nav-active {
+  overflow: hidden;
+}
+@keyframes closeBefore {
+  0% {
+    top: 30px;
+  }
+  30% {
+    top: 25px;
+    transform: rotate(-5deg);
+    height: 6px;
+    width: 45%;
+  }
+  60% {
+    top: 35px;
+    transform: rotate(10deg);
+    height: 6px;
+    width: 45%;
+  }
+  70% {
+    top: 45px;
+    transform: rotate(10deg);
+  }
+  100% {
+    top: 30px;
+  }
+}
+@keyframes closeAfter {
+  0% {
+    top: 50px;
+  }
+  30% {
+    top: 45px;
+    transform: rotate(5deg);
+    height: 6px;
+  }
+  40% {
+    top: 35px;
+    transform: rotate(-5deg);
+  }
+  50% {
+    top: 40px;
+    transform: rotate(-7deg);
+    height: 6px;
+  }
+  60% {
+    top: 55px;
+    transform: rotate(-5deg);
+    width: 55%;
+  }
+  80% {
+    top: 35px;
+    transform: rotate(-5deg);
+  }
+  100% {
+    top: 50px;
+  }
+}
+div#nav-toggle {
+  cursor: pointer;
+  position: fixed;
+  background: #eed5ab url(/assets/svg/5.svg);
+  border-radius: 60% 0 60% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 101;
   width: 100px;
   height: 100px;
   top: 75px;
@@ -1137,13 +1268,52 @@ nav#nav .close {
   border: none;
   outline: none;
 }
-button#nav-toggle {
-  position: fixed;
-  background: url(/assets/svg/5.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 99;
+div#nav-toggle:after,
+div#nav-toggle:before {
+  display: block;
+  height: 8px;
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  background: #dbbb82;
+  border-radius: 100%;
+  content: " ";
+  transform-origin: center center;
+  transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  box-shadow: 0 0 3px #fff;
+}
+div#nav-toggle:before {
+  top: 30px;
+}
+div#nav-toggle:after {
+  top: 50px;
+}
+div#nav-toggle:hover:before,
+div#nav-toggle:active:before {
+  animation-name: closeBefore;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-duration: 1.1s;
+  animation-delay: 0;
+  background: #d5c19e;
+}
+div#nav-toggle:hover:after,
+div#nav-toggle:active:after {
+  animation-name: closeAfter;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-duration: 2.3s;
+}
+div#nav-toggle.active:after {
+  transform: rotate(-45deg);
+  top: calc(50% - 10px);
+  animation: none;
+}
+div#nav-toggle.active:before {
+  transform: rotate(45deg);
+  top: calc(50% - 10px);
+  animation: none;
 }
 nav#nav {
   box-sizing: border-box;
@@ -1154,29 +1324,19 @@ nav#nav {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.7);
+  display: none;
+  opacity: 0;
+  transition: opacity ease-in 0.6s;
 }
-nav#nav .close {
-  z-index: 101;
-  position: absolute;
-  background: #dbbb82;
-  border-radius: 0 0 0 100%;
+nav#nav.fadeIn {
+  opacity: 1;
 }
-nav#nav .close:before,
-nav#nav .close:after {
-  position: absolute;
-  top: 40%;
-  left: 35%;
-  height: 2px;
-  background: #BAA581;
-  content: " ";
+nav#nav.fadeIn:before {
+  top: 0;
+  right: -90vw;
+}
+nav#nav.active {
   display: block;
-  width: 50%;
-}
-nav#nav .close:before {
-  transform: rotate(45deg);
-}
-nav#nav .close:after {
-  transform: rotate(-45deg);
 }
 nav#nav:before {
   display: block;
@@ -1184,27 +1344,23 @@ nav#nav:before {
   position: absolute;
   top: -100vw;
   right: -100vw;
-  height: 100vw;
-  width: 100vw;
+  height: 140vw;
+  width: 140vw;
   background: rgba(87, 110, 158, 0.75);
   background: rgba(219, 186, 130, 0.85);
-  border-radius: 0 0 0 90%;
+  border-radius: 0% 0 0 90%;
   box-shadow: 0 5px 50px rgba(0, 0, 0, 0.15), 100px 0 300px rgba(0, 0, 0, 0.15) inset;
   z-index: 0;
-  transition: all ease 0.5s;
-}
-nav#nav.active:before {
-  top: 0;
-  right: -50vw;
+  transition: all ease-out 0.5s;
 }
 nav#nav ul {
   position: absolute;
   top: 120px;
-  right: 60px;
-  height: 80vh;
+  right: 75px;
+  height: 75vh;
   z-index: 3;
   direction: ltr;
-  width: 300px;
+  width: 260px;
   padding: 0 15px 0 0;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -1236,8 +1392,23 @@ nav#nav ul li {
   overflow: hidden;
   white-space: nowrap;
 }
-nav#nav ul li:after,
-nav#nav ul li:before {
+nav#nav ul li:first-child a:after,
+nav#nav ul li:first-child a:before {
+  display: none !important;
+}
+nav#nav ul li a {
+  font-size: 1em;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  color: #333;
+  height: 44px;
+  line-height: 44px;
+  font-weight: 300;
+  position: relative;
+}
+nav#nav ul li a:after,
+nav#nav ul li a:before {
   position: absolute;
   width: 100%;
   height: 1px;
@@ -1245,28 +1416,13 @@ nav#nav ul li:before {
   content: " ";
   right: 0;
 }
-nav#nav ul li:after {
-  background-image: linear-gradient(to left, rgba(69, 62, 93, 0.2), rgba(74, 69, 143, 0.05));
+nav#nav ul li a:after {
+  background-image: linear-gradient(to left, rgba(69, 62, 93, 0.5), rgba(74, 69, 143, 0.05));
   top: 0px;
 }
-nav#nav ul li:before {
+nav#nav ul li a:before {
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.1));
   top: 1px;
-}
-nav#nav ul li:first-child:after,
-nav#nav ul li:first-child:before {
-  display: none !important;
-}
-nav#nav ul li a {
-  font-size: 13px;
-  width: 100%;
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  color: #333;
-  height: 44px;
-  line-height: 44px;
-  font-weight: 300;
 }
 nav#nav ul li a .icon {
   width: 30px;
@@ -1279,6 +1435,35 @@ nav#nav ul li a .icon {
   line-height: 0;
   border-radius: 100%;
   vertical-align: middle;
+}
+@media (max-width: 900px) {
+  nav#nav.fadeIn:before {
+    top: 0;
+    right: -10vw;
+  }
+}
+@media (max-width: 700px) {
+  div#nav-toggle {
+    transform: scale(0.6);
+    top: 55px;
+    transform-origin: top right;
+  }
+  nav#nav ul {
+    top: 80px;
+    right: 40px;
+    padding-top: 30px;
+    height: calc(100% - 80px);
+    overflow-y: scroll;
+  }
+  nav#nav ul li a {
+    font-size: 1em;
+  }
+  nav#nav.fadeIn:before {
+    width: 140vw;
+    height: 140vh;
+    top: 0;
+    right: 0;
+  }
 }
 header {
   height: 80px;
@@ -1296,11 +1481,10 @@ header img {
 }
 header .account {
   float: right;
-  font-size: 11px;
+  font-size: 0.9em;
   text-align: center;
   line-height: 0;
   text-decoration: none;
-  height: 50px;
   padding-left: 15px;
 }
 header .account span {
@@ -1319,8 +1503,8 @@ header .logo {
   text-decoration: none;
   display: block;
   font-family: sans-serif;
-  font-size: 17px;
-  line-height: 50px;
+  font-size: 1.25em;
+  height: 100%;
   background: url(/assets/svg/1.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -1351,7 +1535,15 @@ header .search img {
   top: 15px;
   right: 15px;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  header {
+    height: 60px;
+    padding: 10px;
+  }
+  header .account img {
+    height: 30px;
+    width: 30px;
+  }
   header .search {
     display: none;
   }

@@ -1,0 +1,143 @@
+#loader {
+  text-align: center;
+  line-height: calc(~"100vh - 100px");
+  background: #453e5d;
+  height: 100vh;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .fil0 {
+      fill: none;
+    }
+
+    .fil6 {
+      fill: #a6b7de;
+    }
+
+    .fil4 {
+      fill: #fefefe;
+      fill-rule: nonzero;
+    }
+
+    .fil1 {
+      fill: #d2ae6d;
+      fill-rule: nonzero;
+    }
+
+    .fil3 {
+      fill: #f2d394;
+      fill-rule: nonzero;
+    }
+
+    .fil2 {
+      fill: white;
+      fill-rule: nonzero;
+    }
+
+    .fil5 {
+      fill: white;
+      fill-rule: nonzero;
+    }
+  }
+
+  .text {
+    font-weight: 100;
+    line-height: 30px;
+    margin-top: 20px;
+    font-size: 17px;
+    color: #666;
+  }
+  .box {
+    line-height: 0;
+    display: inline-block;
+    width: 100%;
+    height: 160px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .logo-loader {
+    .logo {
+      margin: 0 auto;
+      margin-top: -130px;
+      width: 120px;
+      height: 120px;
+      svg {
+        width: 100%;
+        height: 100%;
+
+        .fil4 {
+          fill: white;
+        }
+
+        .fil3 {
+          fill: #ddbc7d;
+          fill-rule: nonzero;
+        }
+
+        .fil2 {
+          fill: #ca9c66;
+          fill-rule: nonzero;
+        }
+
+        .fil1 {
+          fill: #d2ae6d;
+          fill-rule: nonzero;
+        }
+      }
+    }
+
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+    }
+    .loader {
+      margin: 0 auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(255, 255, 255, 0.3);
+      border-right: 1.1em solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1.1em solid rgba(255, 255, 255, 0.3);
+      border-left: 1.1em solid rgba(219, 186, 130, 0.5);
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: load8 1.1s infinite linear;
+      animation: load8 1.1s infinite linear;
+    }
+  }
+  @-webkit-keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}

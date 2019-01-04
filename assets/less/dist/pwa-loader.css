@@ -1,0 +1,70 @@
+.logo-loader .logo {
+  margin: 0 auto;
+  margin-top: -110px;
+  width: 100px;
+  height: 100px;
+}
+.logo-loader .logo img {
+  width: 100%;
+  height: 100%;
+}
+.logo-loader .loader,
+.logo-loader .loader:after {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.logo-loader .loader {
+  margin: 0 auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.3);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.3);
+  border-left: 1.1em solid rgba(219, 186, 130, 0.5);
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#pwa-loader {
+  text-align: center;
+  line-height: calc(100vh - 100px);
+}
+#pwa-loader .text {
+  font-weight: 100;
+  line-height: 30px;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #666;
+}
+#pwa-loader .box {
+  line-height: 0;
+  display: inline-block;
+  width: 100%;
+  height: 160px;
+  vertical-align: middle;
+  text-align: center;
+}

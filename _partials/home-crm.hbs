@@ -1,0 +1,27 @@
+<div id="home-crm" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="500">
+    <h1 class="title">
+        {{ data.home.crm-keyPoints.title}}
+    </h1>
+
+    <div class="blocks">
+        {{#each data.home.crm-keyPoints.blocks}}
+
+        <div class="block">
+            <div class="icon">
+                <img src="/assets/svg/{{icon}}.svg">
+            </div>
+            <h2 class="subtitle">
+                {{subtitle}}
+            </h2>
+            <p>
+                {{p}}
+            </p>
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    <img src="/assets/svg/28.svg" alt="" class="banner">
+
+</div>

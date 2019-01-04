@@ -1,0 +1,33 @@
+#home-advantages {
+  margin: 0 0 0 0;
+  position: relative;
+  text-align: center;
+}
+#home-advantages .title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+}
+#home-advantages .banner {
+  margin: 120px 0;
+}
+#home-advantages .blocks {
+  max-width: 1100px;
+  margin: 60px auto;
+}
+#home-advantages .blocks .block {
+  display: inline-block;
+  padding: 30px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+#home-advantages .blocks .block .icon {
+  height: 110px;
+  width: 110px;
+  margin: 0 auto;
+}
+#home-advantages .blocks .block .subtitle {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #444;
+}

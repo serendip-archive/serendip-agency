@@ -1,0 +1,29 @@
+#home-crm {
+  margin: 120px 0 0 0;
+  position: relative;
+  text-align: center;
+}
+#home-crm .title {
+  font-size: 3em;
+  font-weight: bold;
+  color: #333;
+}
+#home-crm .banner {
+  margin: 120px 0;
+}
+#home-crm .blocks .block {
+  display: inline-block;
+  padding: 30px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+#home-crm .blocks .block .icon {
+  height: 220px;
+  width: 220px;
+  margin: 0 auto;
+}
+#home-crm .blocks .block .subtitle {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #444;
+}
