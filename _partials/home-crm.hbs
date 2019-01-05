@@ -1,12 +1,15 @@
-<div id="home-crm" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="500">
-    <h1 class="title">
-        {{ data.home.crm-keyPoints.title}}
+<div id="home-crm" >
+ 
+{{#if data.home.crmKeyPoints.visible}}
+
+    <h1 class="title" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="500">
+        {{ data.home.crmKeyPoints.title}}
     </h1>
 
-    <div class="blocks">
-        {{#each data.home.crm-keyPoints.blocks}}
+    <div class="blocks" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="700" >
+        {{#each data.home.crmKeyPoints.blocks}}
 
-        <div class="block">
+        <div class="block" >
             <div class="icon">
                 <img src="/assets/svg/{{icon}}.svg">
             </div>
@@ -21,7 +24,11 @@
         {{/each}}
 
     </div>
+{{/if}}
 
-    <img src="/assets/svg/28.svg" alt="" class="banner">
+{{#if data.home.crmKeyPoints.banner.visible}}
+<img src="/assets/svg/{{data.home.crmKeyPoints.banner.number}}.svg" alt="" class="banner" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="1000">
+{{/if}}
 
 </div>
+

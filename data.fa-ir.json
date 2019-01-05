@@ -11,7 +11,12 @@
     "links": []
   },
   "home": {
-    "crm-keyPoints": {
+    "crmKeyPoints": {
+      "banner": {
+        "visible": true,
+        "number": 28
+      },
+      "visible": true,
       "title": "نرم‌افزار مدیریت ارتباط با مشتری سرندیپ",
       "blocks": [
         {

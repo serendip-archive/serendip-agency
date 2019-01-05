@@ -4,7 +4,6 @@
   text-align: center;
 }
 #home-crm .title {
-  font-size: 3em;
   font-weight: bold;
   color: #333;
 }
@@ -23,7 +22,18 @@
   margin: 0 auto;
 }
 #home-crm .blocks .block .subtitle {
-  font-size: 1.6em;
   font-weight: bold;
   color: #444;
+}
+@media (max-width: 700px) {
+  #home-crm {
+    margin: 60px 0;
+    margin-bottom: 0;
+  }
+  #home-crm .banner {
+    margin: 30px 0;
+  }
+  #home-crm .title {
+    padding: 0;
+  }
 }

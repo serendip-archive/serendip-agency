@@ -4,9 +4,7 @@
   text-align: center;
 }
 #home-advantages .title {
-  font-size: 2.5em;
   font-weight: bold;
-  color: #333;
 }
 #home-advantages .banner {
   margin: 120px 0;
@@ -26,8 +24,31 @@
   width: 110px;
   margin: 0 auto;
 }
-#home-advantages .blocks .block .subtitle {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #444;
+@media (max-width: 700px) {
+  #home-advantages {
+    margin: 0 0 0 0;
+    position: relative;
+    text-align: center;
+  }
+  #home-advantages .title {
+    font-weight: bold;
+  }
+  #home-advantages .banner {
+    margin: 60px 0;
+  }
+  #home-advantages .blocks {
+    max-width: 1100px;
+    margin: 15px auto;
+  }
+  #home-advantages .blocks .block {
+    display: inline-block;
+    padding: 15px;
+    box-sizing: border-box;
+    vertical-align: top;
+  }
+  #home-advantages .blocks .block .icon {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+  }
 }

@@ -63,7 +63,6 @@
   padding: 30px;
 }
 #home-astro .start .title {
-  font-size: 1.6em;
   color: #333;
   font-weight: 900;
   line-height: 30px;
@@ -115,9 +114,6 @@
   }
   #home-astro .start {
     padding: 15px;
-  }
-  #home-astro .start .title {
-    font-size: 1.25em;
   }
   #home-astro .extra-small-moon {
     top: 35%;

@@ -1,43 +1,58 @@
 @import "variables.less";
-
 #home-advantages {
-  margin: 0 0 0 0;
-  position: relative;
-  text-align: center;
-  .title {
-    font-size: @size10;
-    font-weight: bold;
-    color: #333;
-  }
-
-  .banner {
-    margin: 120px 0;
-  }
-
-  .blocks {
-    max-width: 1100px;
-    margin:60px auto;
-    .block {
-      display: inline-block;
-      padding: 30px;
-      box-sizing: border-box;
-      vertical-align: top;
-
-      .icon {
-        height: 110px;
-        width: 110px;
-        margin: 0 auto;
-      }
-      .subtitle {
-        font-size: @size7;
+    margin: 0 0 0 0;
+    position: relative;
+    text-align: center;
+    .title {
         font-weight: bold;
-        color: #444;
-      }
     }
-  }
+    .banner {
+        margin: 120px 0;
+    }
+    .blocks {
+        max-width: 1100px;
+        margin: 60px auto;
+        .block {
+            display: inline-block;
+            padding: 30px;
+            box-sizing: border-box;
+            vertical-align: top;
+            .icon {
+                height: 110px;
+                width: 110px;
+                margin: 0 auto;
+            }
+            .subtitle {}
+        }
+    }
 }
 
 @media (max-width: 700px) {
   #home-advantages {
-  }
+    margin: 0 0 0 0;
+    position: relative;
+    text-align: center;
+    .title {
+        font-weight: bold;
+    }
+    .banner {
+        margin: 60px 0;
+    }
+    .blocks {
+        max-width: 1100px;
+        margin: 15px auto;
+        .block {
+            display: inline-block;
+            padding: 15px;
+            box-sizing: border-box;
+            vertical-align: top;
+            .icon {
+                height: 80px;
+                width: 80px;
+                margin: 0 auto;
+            }
+            .subtitle {}
+        }
+    }
+}
 }

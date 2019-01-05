@@ -1119,6 +1119,7 @@ button {
 body {
   font-size: 13px;
   overflow: hidden;
+  overflow-x: hidden;
 }
 body.scroll {
   overflow-y: auto;
@@ -1138,49 +1139,6 @@ body.scroll {
   padding: 0 30px;
   margin: 0 auto;
 }
-.double-block {
-  margin: 120px 0;
-  position: relative;
-  text-align: center;
-}
-.double-block.has-fixed {
-  height: 50vh;
-  margin: 60px 0;
-  text-align: right;
-}
-.double-block .block {
-  display: inline-block;
-  vertical-align: top;
-  width: 40%;
-  direction: rtl;
-  text-align: start;
-  margin: 0 2.5%;
-}
-.double-block .block .title {
-  color: #333;
-  font-weight: bold;
-  margin: 0 0 0 0;
-  font-size: 1.6em;
-}
-.double-block .block p {
-  padding: 30px;
-  color: #444;
-  line-height: 1.5;
-  text-align: justify;
-  font-size: 1em;
-}
-.double-block .block.static-right {
-  padding: 60px 5% 0 0;
-  margin: 0;
-  width: 50%;
-}
-.double-block .block.fixed-left {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  margin: 0;
-}
 body::-webkit-scrollbar {
   width: 6px;
   background: transparent;
@@ -1194,6 +1152,29 @@ body::-webkit-scrollbar-thumb {
 }
 body.nav-active {
   overflow: hidden;
+}
+.title {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 1.6em;
+  font-weight: bold;
+  line-height: 1.25;
+}
+p {
+  font-size: 1.1em;
+}
+@media (max-width: 700px) {
+  .title {
+    font-size: 1.9em;
+  }
+  .subtitle {
+    font-size: 1.4em;
+  }
+  p {
+    font-size: 1em;
+  }
 }
 @keyframes closeBefore {
   0% {
