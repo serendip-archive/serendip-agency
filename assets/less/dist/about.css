@@ -2,6 +2,16 @@
   padding: 80px;
   padding-left: 0;
 }
+#about-page section {
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+#about-page section .sub-section {
+  margin-bottom: 30px;
+}
+#about-page section .sub-section .button {
+  float: left;
+}
 @media (max-width: 700px) {
   #about-page .top-banner {
     padding: 60px;

@@ -1,11 +1,17 @@
 @import "variables.less";
 
 footer#footer {
-    margin:0;
+  margin: 0;
   padding: 60px 0;
   box-sizing: border-box;
   background: #3c3874;
-  color: #fff;
+
+  .subtitle {
+    color: #fff;
+  }
+  p {
+    color: #eee;
+  }
   .copyleft {
     text-align: center;
     direction: ltr;
@@ -41,8 +47,6 @@ footer#footer {
     padding-right: 30px;
     box-sizing: border-box;
     padding: 30px;
-
-    
 
     &:after {
       clear: both;
@@ -95,7 +99,7 @@ footer#footer {
   }
   .links {
     vertical-align: top;
-    width:calc(~"100% - 360px");
+    width: calc(~"100% - 360px");
 
     float: right;
     padding: 30px;
@@ -144,9 +148,9 @@ footer#footer {
     .links {
       border-top: 4px solid rgba(255, 255, 255, 0.05);
       margin: 0;
-      padding:0 15px;
+      padding: 0 15px;
       padding-top: 25px;
-      width:100%;
+      width: 100%;
     }
   }
 }

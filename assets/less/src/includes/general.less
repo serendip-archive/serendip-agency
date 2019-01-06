@@ -1,114 +1,170 @@
 @import "variables.less";
 img {
-    max-height: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    display: block;
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 * {
-    user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 p {
-    user-select: text;
+  user-select: text;
 }
 
 div,
 img,
-div,
 input,
 textarea,
 button {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 body,
 input,
 textarea,
 button {
-    font-family: iranyekan;
-    color: #777;
+  font-family: iranyekan;
+  color: #777;
 }
 
 body {
-    font-size: 13px;
-    overflow: hidden;
-    overflow-x: hidden;
-    direction: rtl;
+  font-size: 13px;
+  overflow: hidden;
+  overflow-x: hidden;
+  direction: rtl;
 }
 
 body.scroll {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .en {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
-.inner-body {}
+.inner-body {
+}
 
 .clear,
 .clearfix {
-    clear: both;
-    display: block;
-    content: " ";
+  clear: both;
+  display: block;
+  content: " ";
 }
 
 .container {
-    box-sizing: border-box;
-    max-width: 1200px;
-    padding: 0 30px;
-    margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 body::-webkit-scrollbar {
-    width: 8px;
-    background: #F3E0C2;
+  width: 8px;
+  background: #f3e0c2;
 }
 
 body::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #564D72;
-    border-radius: 50%;
+  background: #564d72;
+  border-radius: 50%;
 }
 
 body.nav-active {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .title {
-    font-size: @size8;
-    font-weight: bold;
+  font-size: @size8;
+  font-weight: bold;
+  color: #111;
 }
 
 .subtitle {
-    font-size: @size6;
-    font-weight: bold;
-    line-height: 1.25;
+  font-size: @size6;
+  font-weight: bold;
+  line-height: 30px;
+  color: #222;
 }
 
 p {
-    font-size: @size3;
-    line-height: 1.55;
+  font-size: @size3;
+  line-height: 20px;
+  color: #333;
+  text-align: justify;
 }
 
-@media(max-width:700px) {
-    .title {
-        font-size: @size8;
-    }
-    .subtitle {
-        font-size: @size6;
-    }
-    p {
-        font-size: @size3;
-    }
+.button,
+button {
+  margin: 10px 0;
+  display: inline-block;
+
+  border: 1px solid #777;
+  line-height: 36px;
+  padding: 0 46px 0 10px;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 20px;
+  position: relative;
+  font-weight: 100;
+  color: #333;
+  font-size: @size4;
+  &:before {
+    content: " ";
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    right: 3px;
+    top: 6px;
+    box-sizing: border-box;
+
+    border: 1px solid #777;
+  }
+
+  &:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    right: 38px;
+    top: 6px;
+    height: 24px;
+    width: 2px;
+    background: #ccc;
+  }
+
+  &.primary {
+  }
+
+  &.secondary {
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: @size8;
+  }
+  .subtitle {
+    font-size: @size6;
+  }
+  p {
+    font-size: @size3;
+  }
 }

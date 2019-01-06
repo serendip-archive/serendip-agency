@@ -15,13 +15,71 @@
     {{> nav}}
     {{> header}}
 
+
+
     <div class="inner-body">
 
         <div id="about-page">
 
-            <div class="top-banner">
-            <img src="/assets/svg/about/about-1.svg" alt="" />
+            <div class="top-banner"  data-aos-duration="500" data-aos="fade-in" data-aos-delay="1000">
+                <img src="/assets/svg/about/about-1.svg" alt="" />
             </div>
+
+            <div class="container">
+                {{#if data.about.serendipCrm.visible}}
+                <section data-aos-duration="500" data-aos="fade-in" data-aos-delay="1000">
+
+                    <div class="subtitle">
+                        {{ data.about.serendipCrm.title}}
+                    </div>
+
+                    {{#each data.about.serendipCrm.sections}}
+                    <div class="sub-section">
+                        <p>
+                            {{ p }}
+                        </p>
+                        {{#if buttonText}}
+                        <a href="{{buttonLink}}" class="button primary">
+                            {{buttonText}}
+                        </a>
+
+                        {{/if}}
+                        <div class="clearfix"></div>
+
+                    </div>
+                    {{/each}}
+                    <div class="clearfix"></div>
+
+                </section>
+                {{/if}}
+                {{#if data.about.serendipAgency.visible}}
+                <section data-aos-duration="500" data-aos="fade-in" data-aos-delay="300">
+
+                    <div class="subtitle">
+                        {{ data.about.serendipAgency.title}}
+                    </div>
+
+                    {{#each data.about.serendipAgency.sections}}
+                    <div class="sub-section">
+
+                        <p>
+                            {{ p }}
+                        </p>
+                        {{#if buttonText}}
+                        <a href="{{buttonLink}}" class="button primary">
+                            {{buttonText}}
+                        </a>
+                        {{/if}}
+                        <div class="clearfix"></div>
+
+                    </div>
+                    {{/each}}
+                    <div class="clearfix"></div>
+
+                </section>
+                {{/if}}
+            </div>
+
             <img src="/assets/svg/about/about-7.svg" alt="" />
 
         </div>

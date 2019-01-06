@@ -78,6 +78,7 @@ div#nav-toggle {
   border: none;
   outline: none;
 
+
   &:after,
   &:before {
     display: block;
@@ -100,7 +101,8 @@ div#nav-toggle {
     top: 50px;
   }
 
-  &:hover:before, &:active:before {
+  &:hover:before,
+  &:active:before {
     animation-name: closeBefore;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
@@ -108,7 +110,8 @@ div#nav-toggle {
     animation-delay: 0;
     background: #d5c19e;
   }
-  &:hover:after,  &:active:after {
+  &:hover:after,
+  &:active:after {
     animation-name: closeAfter;
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
@@ -139,8 +142,7 @@ nav#nav {
   background: rgba(255, 255, 255, 0.7);
   display: none;
   opacity: 0;
-  transition: opacity ease-in 0.6s;
-
+  transition: opacity linear .7s;
   &.fadeIn {
     opacity: 1;
     &:before {
@@ -163,11 +165,11 @@ nav#nav {
     width: 140vw;
     background: rgba(87, 110, 158, 0.75);
     background: rgba(219, 186, 130, 0.85);
+    background: #f3e0c2;
     border-radius: 0% 0 0 90%;
-    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.15),
-      100px 0 300px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 5px 100px rgba(0, 0, 0, 0.15);
     z-index: 0;
-    transition: all ease-out 0.5s;
+    transition: all linear 0.5s;
   }
 
   ul {
@@ -289,31 +291,29 @@ nav#nav {
   }
 }
 
-@media (max-width :700px) {
-
-  div#nav-toggle{
-    transform: scale(.6);
-    top:55px;
+@media (max-width: 700px) {
+  div#nav-toggle {
+    transform: scale(0.6);
+    top: 55px;
     transform-origin: top right;
   }
   nav#nav {
-
-    ul{
-      top:80px;
-      right:40px;
-      padding-top:30px;
+    ul {
+      top: 80px;
+      right: 40px;
+      padding-top: 30px;
       height: calc(~"100% - 80px");
-      overflow-y:scroll;
-      li{
-        a{
+      overflow-y: scroll;
+      li {
+        a {
           font-size: @size3;
         }
       }
     }
     &.fadeIn {
       &:before {
-        width:140vw;
-        height:140vh;
+        width: 140vw;
+        height: 140vh;
         top: 0;
         right: 0;
       }
