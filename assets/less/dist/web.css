@@ -1163,7 +1163,7 @@ body.nav-active {
   color: #111;
 }
 .subtitle {
-  font-size: 1.4em;
+  font-size: 1.25em;
   font-weight: bold;
   line-height: 30px;
   color: #222;
@@ -1174,8 +1174,7 @@ p {
   color: #333;
   text-align: justify;
 }
-.button,
-button {
+.button.spd {
   margin: 10px 0;
   display: inline-block;
   border: 1px solid #777;
@@ -1190,8 +1189,7 @@ button {
   color: #333;
   font-size: 1.1em;
 }
-.button:before,
-button:before {
+.button.spd:before {
   content: " ";
   width: 24px;
   height: 24px;
@@ -1204,8 +1202,7 @@ button:before {
   box-sizing: border-box;
   border: 1px solid #777;
 }
-.button:after,
-button:after {
+.button.spd:after {
   content: " ";
   display: block;
   position: absolute;
@@ -1739,7 +1736,6 @@ footer#footer .socials a {
 }
 #newsletter form {
   float: left;
-  color: #fff;
   position: relative;
   z-index: 1;
   padding: 10px;
@@ -1765,10 +1761,15 @@ footer#footer .socials a {
   color: #fff;
   font-weight: bold;
 }
+#newsletter form .title {
+  color: #fff;
+}
 #newsletter form p {
   padding: 10px 0;
   max-width: 360px;
+  text-align: start;
   box-sizing: border-box;
+  color: #eee;
 }
 #newsletter form p.note {
   padding: 10px;
