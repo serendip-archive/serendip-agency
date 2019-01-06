@@ -3,6 +3,7 @@ var gulp = require("gulp");
 var path = require("path");
 var child = require("child_process");
 var fs = require("fs");
+var glob = require("glob");
 
 var livereload = require("gulp-livereload");
 
@@ -16,46 +17,60 @@ global.document = document;
 
 var $ = (jQuery = require("jquery")(window));
 
+var readDirWithGlob = pathPattern => {
+  return new Promise((resolve, reject) => {
+    glob(path.join(pathPattern), (err, matches) => resolve(matches));
+  });
+};
 var createSvgIconSetPartial = async () => {
   var svgDirPath = path.join(__dirname, "assets", "svg");
-  var partialPath = path.join(__dirname, "_partials", "svg-icons.hbs");
-
-  fs.writeFileSync(
-    partialPath,
-    `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">`
-  );
+  var partialsPath = path.join(__dirname, "_partials", "svg");
+  var lessPath = path.join(__dirname, "assets", "less", "src", "svgs.less");
 
   var builder = new xml2js.Builder({
-    rootName: "symbol"
+    rootName: "svg"
   });
 
-  var svgs = fs.readdirSync(svgDirPath);
+  var svgs = await readDirWithGlob(path.join(svgDirPath, "**/*.svg"));
+  var lessToWrite = "";
 
   await Promise.all(
-    svgs.map(fileName => {
+    svgs.map(filePath => {
       return new Promise((resolve, reject) => {
-        if (!fileName.endsWith(".svg")) return resolve();
-
-        var svgContent = fs
-          .readFileSync(path.join(svgDirPath, fileName))
-          .toString();
+        var svgContent = fs.readFileSync(filePath).toString();
 
         var originalSvg = $($.parseXML(svgContent)).find("svg");
 
-        var svgId = `svg-${fileName.replace(".svg", "")}`;
+        var svgPosix = filePath
+          .replace(svgDirPath, "")
+          .substr(1)
+          .replace("/", "-")
+          .replace(".svg", "");
+        var svgId = `svg-${svgPosix}`;
+
+        var style = $($.parseXML(svgContent))
+          .find("style")
+          .text();
+
+        lessToWrite += `#${svgId}{ ${style} }`;
+        //    console.log(style.text());
 
         xmlParseString(svgContent, (err, xml) => {
+          delete xml.svg.defs;
+
           var resXml = builder.buildObject(xml.svg);
           var lines = resXml.split("\n");
           lines.shift();
           lines.shift();
           lines.unshift(
-            `<symbol id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
+            `<svg id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
           );
           resXml = lines.join("\n");
-          console.log(resXml);
 
-          fs.appendFileSync(partialPath, resXml);
+          fs.writeFileSync(
+            path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
+            resXml
+          );
 
           resolve();
         });
@@ -63,7 +78,7 @@ var createSvgIconSetPartial = async () => {
     })
   );
 
-  fs.appendFileSync(partialPath, `</svg>`);
+  fs.writeFileSync(lessPath, lessToWrite);
 };
 
 var compileLess = () => {
@@ -85,6 +100,7 @@ gulp.task("default", () => {
 
   gulp.watch(["./assets/less/src/**/*.less"], compileLess);
 
+  createSvgIconSetPartial();
   compileLess();
 
   child.spawn(

@@ -1,10 +1,14 @@
 #home-technologies {
   position: relative;
   width: 100%;
+  min-height: 60vh;
 }
 #home-technologies .bg {
   width: 100%;
-  height: 100%;
+  height: auto;
+  resize: both;
+  display: block;
+  position: relative;
 }
 #home-technologies .subtitle {
   height: 5%;
@@ -16,7 +20,7 @@
   font-weight: bold;
   color: #333;
 }
-#home-technologies .front {
+#home-technologies .front svg {
   position: absolute;
   width: 80%;
   height: 80%;

@@ -47,6 +47,7 @@
 }
 #home-astro .bg {
   width: 100%;
+  position: relative;
   display: block;
 }
 #home-astro > div {
@@ -54,10 +55,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-#home-astro:after {
+#home-astro .human {
   display: block;
   content: " ";
-  background: url("/assets/svg/9.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left top;
@@ -68,29 +68,28 @@
   left: 25%;
   z-index: 20;
 }
+#home-astro .human svg {
+  height: 100%;
+}
 #home-astro .half-moon {
-  background-image: url("/assets/svg/6.svg");
   width: 30%;
   height: 60%;
   top: 0;
   left: 0;
 }
 #home-astro .small-moon {
-  background-image: url("/assets/svg/7.svg");
   width: 10%;
   height: 10%;
   bottom: 30%;
   left: 10%;
 }
 #home-astro .extra-small-moon {
-  background-image: url("/assets/svg/8.svg");
   width: 5%;
   height: 5%;
   top: 30%;
   left: 60%;
 }
 #home-astro .text-logo {
-  background-image: url("/assets/svg/10.svg");
   width: 30%;
   height: 20%;
   top: 40%;
@@ -112,43 +111,21 @@
   line-height: 30px;
   height: 30px;
 }
-#home-astro .start a {
-  margin-top: 15px;
-  float: right;
-  width: 140px;
-  margin-left: 15px;
-  height: 48px;
-  line-height: 48px;
-  padding-right: 55px;
-  box-sizing: border-box;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  text-decoration: none;
-  transition: all ease 0.3s;
-}
-#home-astro .start a:hover {
-  transform: scale(1.05) rotate(0.001deg);
-}
-#home-astro .start a.pricing {
-  background-image: url(/assets/svg/23.svg);
-  color: #6c87c3;
-}
-#home-astro .start a.free {
-  background-image: url(/assets/svg/21.svg);
-  color: #fff;
-}
 @media (max-width: 700px) {
   #home-astro {
     height: 80vh;
-    background: url(/assets/svg/11.svg);
     background-size: cover;
     background-position: right bottom;
     background-repeat: no-repeat;
   }
-  #home-astro img.bg {
+  #home-astro .bg {
+    overflow: hidden;
+  }
+  #home-astro .bg svg {
     width: 200%;
-    display: none;
+    height: auto;
+    max-width: unset;
+    max-height: unset;
   }
   #home-astro .text-logo {
     width: 40%;
@@ -230,10 +207,14 @@
 #home-technologies {
   position: relative;
   width: 100%;
+  min-height: 60vh;
 }
 #home-technologies .bg {
   width: 100%;
-  height: 100%;
+  height: auto;
+  resize: both;
+  display: block;
+  position: relative;
 }
 #home-technologies .subtitle {
   height: 5%;
@@ -245,7 +226,7 @@
   font-weight: bold;
   color: #333;
 }
-#home-technologies .front {
+#home-technologies .front svg {
   position: absolute;
   width: 80%;
   height: 80%;

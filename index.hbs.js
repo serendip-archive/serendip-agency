@@ -5,10 +5,7 @@ async () => {
   return {
     handlebars: Modules.handlebars,
     model: {
-      name: "mohsen",
-      footer: {
-        site_name: "serendip.cloud"
-      }
+      svgPartial : (number) => "svg-" + number
     }
   };
 };

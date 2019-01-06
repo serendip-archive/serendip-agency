@@ -4,10 +4,14 @@
   position: relative;
 
   width: 100%;
+  min-height: 60vh;
 
   .bg {
     width: 100%;
-    height: 100%;
+    height: auto;
+    resize: both;
+    display: block;
+    position: relative;
   }
 
   .subtitle {
@@ -23,11 +27,14 @@
 
   }
   .front {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
+
+    svg{
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+    }
   }
 }
 
