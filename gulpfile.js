@@ -58,6 +58,9 @@ var createSvgIconSetPartial = async () => {
         xmlParseString(svgContent, (err, xml) => {
           delete xml.svg.defs;
 
+          if (xml.svg.g && xml.svg.g[0] && xml.svg.g[0].g)
+            xml.svg.g = xml.svg.g[0].g;
+
           var resXml = builder.buildObject(xml.svg);
           var lines = resXml.split("\n");
           lines.shift();
