@@ -39,6 +39,7 @@ body {
     font-size: 13px;
     overflow: hidden;
     overflow-x: hidden;
+    direction: rtl;
 }
 
 body.scroll {
@@ -66,8 +67,8 @@ body.scroll {
 }
 
 body::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
+    width: 8px;
+    background: #F3E0C2;
 }
 
 body::-webkit-scrollbar-track {
@@ -75,8 +76,8 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: transparent;
-    border-left: 4px solid #dbbb82;
+    background: #564D72;
+    border-radius: 50%;
 }
 
 body.nav-active {
@@ -84,18 +85,19 @@ body.nav-active {
 }
 
 .title {
-    font-size: @size9;
+    font-size: @size8;
     font-weight: bold;
 }
 
 .subtitle {
-    font-size: @size7;
+    font-size: @size6;
     font-weight: bold;
     line-height: 1.25;
 }
 
 p {
-    font-size: @size4;
+    font-size: @size3;
+    line-height: 1.55;
 }
 
 @media(max-width:700px) {

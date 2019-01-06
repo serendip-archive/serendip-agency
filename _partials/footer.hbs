@@ -1,15 +1,105 @@
-<footer  data-aos-duration="500" data-aos="fade-in" data-aos-delay="500">
+<footer id="footer">
 
-<div class="container">
-    {{#each data.footer.links}}
-    <a target="_blank" href="{{link}}">{{text}}</a>
+    <div class="container">
 
-    {{#unless @last}}
-    |
-    {{/unless}}
 
-    {{/each}}
+        <div class="blocks">
+            <div class="block">
 
+                <div class="subtitle">
+                    {{data.home.astro.subtitle}}
+                </div>
+                <p>
+                    {{data.home.astro.p}}
+
+                </p>
+
+                <a class="button">
+                    {{data.home.astro.button}}
+                </a>
+
+            </div>
+
+            <div class="block">
+                <div class="subtitle">
+
+                    {{ data.newsletter.title}}
+                </div>
+
+                <p>
+                    {{ data.newsletter.p}}
+                </p>
+                <input type="email" name="email" dir="ltr" class="en" autocomplete="email" placeholder="{{data.newsletter.inputPlaceholder}}">
+
+                <button type="submit">
+                    {{ data.newsletter.buttonText}}
+                </button>
+            </div>
+
+
+            <div class="block">
+                <div class="subtitle">
+
+                    {{ data.requestContact.title}}
+                </div>
+
+                <p>
+                    {{ data.requestContact.p}}
+                </p>
+                <input type="email" name="email" dir="ltr" class="en" autocomplete="email" placeholder="{{data.requestContact.inputPlaceholder}}">
+
+                <button type="submit">
+                    {{ data.requestContact.buttonText}}
+                </button>
+            </div>
+
+
+        </div>
+        <div class="links">
+            <div class="subtitle">
+                {{ data.footer.linksTitle}}
+            </div>
+            <ul>
+                {{#each data.footer.links}}
+                <li>
+                    <a target="_blank" href="{{link}}">{{unsafe text}}</a>
+                </li>
+
+
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="socials">
+            <a href="">
+                <img src="/assets/svg/101.svg" alt="">
+            </a>
+            <a href="">
+                <img src="/assets/svg/102.svg" alt="">
+            </a>
+            <a href="">
+                <img src="/assets/svg/103.svg" alt="">
+            </a>
+            <a href="">
+                <img src="/assets/svg/104.svg" alt="">
+            </a>
+            <a href="">
+                <img src="/assets/svg/105.svg" alt="">
+            </a>
+        </div>
+
+        <div class="clearfix"></div>
+
+
+        <div class="copyleft">
+        <p class="en">
+            <span class="flip">
+                ©
+            </span>
+            <a href="https://en.wikipedia.org/wiki/Copyleft">Copyleft</a> 2018 Serendip Agency.
+        </p>
     </div>
-    
+    </div>
+
 </footer>

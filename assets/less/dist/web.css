@@ -1120,6 +1120,7 @@ body {
   font-size: 13px;
   overflow: hidden;
   overflow-x: hidden;
+  direction: rtl;
 }
 body.scroll {
   overflow-y: auto;
@@ -1140,30 +1141,31 @@ body.scroll {
   margin: 0 auto;
 }
 body::-webkit-scrollbar {
-  width: 6px;
-  background: transparent;
+  width: 8px;
+  background: #F3E0C2;
 }
 body::-webkit-scrollbar-track {
   background: transparent;
 }
 body::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-left: 4px solid #dbbb82;
+  background: #564D72;
+  border-radius: 50%;
 }
 body.nav-active {
   overflow: hidden;
 }
 .title {
-  font-size: 2.3em;
+  font-size: 1.9em;
   font-weight: bold;
 }
 .subtitle {
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: bold;
   line-height: 1.25;
 }
 p {
-  font-size: 1.1em;
+  font-size: 1em;
+  line-height: 1.55;
 }
 @media (max-width: 700px) {
   .title {
@@ -1452,6 +1454,7 @@ header {
   padding: 15px;
   position: fixed;
   width: 100%;
+  width: 100vw;
   z-index: 200;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -1528,4 +1531,153 @@ header .search img {
   header .search {
     display: none;
   }
+}
+footer#footer {
+  padding: 60px 0;
+  box-sizing: border-box;
+  background: #3c3874;
+  color: #fff;
+}
+footer#footer .copyleft {
+  text-align: center;
+  direction: ltr;
+  margin: 30px auto 0 auto;
+  padding-top: 10px;
+  border-top: 1px solid #776884;
+  max-width: 270px;
+  font-size: 0.9em;
+  color: #e3e0db;
+  letter-spacing: 2px;
+}
+footer#footer .copyleft a {
+  color: #e3e0db;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  vertical-align: top;
+  display: inline-block;
+}
+footer#footer .copyleft .flip {
+  vertical-align: top;
+  transform: rotateY(180deg);
+  display: inline-block;
+  margin: 0 5px;
+}
+footer#footer .blocks {
+  float: left;
+  margin: 30px;
+  vertical-align: top;
+  max-width: 420px;
+  border-right: 4px solid rgba(255, 255, 255, 0.05);
+  padding-right: 30px;
+}
+footer#footer .blocks:after {
+  clear: both;
+  display: block;
+  content: ' ';
+}
+footer#footer .blocks .block {
+  margin-bottom: 30px;
+}
+footer#footer .blocks .block:after {
+  clear: both;
+  display: block;
+  content: " ";
+}
+footer#footer .blocks .block .subtitle {
+  margin-bottom: 5px;
+}
+footer#footer .blocks .block p {
+  padding: 5px 0;
+  font-weight: 100;
+}
+footer#footer .blocks .block input {
+  border: none;
+  display: block;
+  margin: 10px 0;
+  padding: 5px 10px;
+  width: 100%;
+  box-shadow: -3px 3px 0 #eee;
+  background: #fff;
+}
+footer#footer .blocks .block a.button,
+footer#footer .blocks .block button {
+  float: left;
+  display: block;
+  margin: 5px 0;
+  padding: 5px 10px;
+  line-height: 20px;
+  box-shadow: -3px 3px 0 #b89a73;
+  background: #dbbb82;
+  color: #000;
+  font-weight: 500;
+  font-size: 1.1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+footer#footer .links {
+  vertical-align: top;
+  float: right;
+  margin: 30px;
+}
+footer#footer .links ul li {
+  line-height: 2;
+}
+footer#footer .links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 100;
+  font-size: 1em;
+}
+footer#footer .links ul li a:hover {
+  border-bottom: 1px solid #fff;
+}
+footer#footer .socials {
+  margin: 60px 0 0 0;
+  text-align: center;
+}
+footer#footer .socials a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 10px;
+}
+#newsletter {
+  background: #4A458F url(/assets/svg/88.svg);
+  background-size: auto 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  padding: 60px 0;
+}
+#newsletter form {
+  float: left;
+  color: #fff;
+}
+#newsletter form .input-submit input,
+#newsletter form .input-submit button {
+  margin: 0;
+  height: 30px;
+  border: none;
+  box-sizing: border-box;
+}
+#newsletter form .input-submit input {
+  width: calc(100% - 80px);
+  float: right;
+  background: #fff;
+  padding: 0 10px;
+}
+#newsletter form .input-submit button {
+  float: left;
+  width: 80px;
+  background: #576E9E;
+  color: #fff;
+  font-weight: bold;
+}
+#newsletter form p {
+  padding: 10px 0;
+  max-width: 360px;
+  box-sizing: border-box;
+}
+#newsletter form p.note {
+  padding: 10px;
 }

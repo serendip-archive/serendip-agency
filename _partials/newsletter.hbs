@@ -1,29 +1,32 @@
 <div id="newsletter">
 
-    <div class="form">
-        <div class="title">
+    <div class="container">
+        <form>
+            <div class="title">
 
 
-            {{ data.newsletter.title}}
-        </div>
+                {{ data.newsletter.title}}
+            </div>
 
-        <p>
-            {{ data.newsletter.p}}
-        </p>
+            <p>
+                {{ data.newsletter.p}}
+            </p>
 
-        <div class="input-submit">
-            <input type="email" name="email" placeholder="{{data.newsletter.inputPlaceholder}}">
-            <button type="submit">
-                {{ data.newsletter.buttonText}}
-            </button>
-        </div>
+            <div class="input-submit">
+                <input type="email" dir="ltr" class="en" autocomplete="email" name="email" placeholder="{{data.newsletter.inputPlaceholder}}">
+                <button type="submit">
+                    {{ data.newsletter.buttonText}}
+                </button>
+                <div class="clearfix"></div>
+            </div>
 
-        <p class="note">
-            {{ data.newsletter.note}}
-            <div class="en"> {{ data.newsletter.noteEmail}}</div>
+            <p class="note">
+                {{ data.newsletter.note}}
+                <span class="en"> {{ data.newsletter.noteEmail}}</span>
 
-        </p>
+            </p>
 
+        </form>
+        <div class="clearfix"></div>
     </div>
-
 </div>
