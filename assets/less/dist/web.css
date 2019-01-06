@@ -1566,11 +1566,12 @@ footer#footer .copyleft .flip {
 }
 footer#footer .blocks {
   float: left;
-  margin: 30px;
   vertical-align: top;
-  max-width: 420px;
+  max-width: 360px;
   border-right: 4px solid rgba(255, 255, 255, 0.05);
   padding-right: 30px;
+  box-sizing: border-box;
+  padding: 30px;
 }
 footer#footer .blocks:after {
   clear: both;
@@ -1619,8 +1620,10 @@ footer#footer .blocks .block button {
 }
 footer#footer .links {
   vertical-align: top;
+  width: calc(100% - 360px);
   float: right;
-  margin: 30px;
+  padding: 30px;
+  box-sizing: border-box;
 }
 footer#footer .links ul li {
   padding: 0;
@@ -1650,12 +1653,16 @@ footer#footer .socials a {
   footer#footer .blocks {
     border-right: none;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
+    float: none;
+    max-width: 100%;
   }
   footer#footer .links {
     border-top: 4px solid rgba(255, 255, 255, 0.05);
     margin: 0;
+    padding: 0 15px;
     padding-top: 25px;
+    width: 100%;
   }
 }
 #newsletter {
@@ -1682,6 +1689,8 @@ footer#footer .socials a {
   color: #fff;
   position: relative;
   z-index: 1;
+  padding: 10px;
+  box-sizing: border-box;
 }
 #newsletter form .input-submit input,
 #newsletter form .input-submit button {
@@ -1714,7 +1723,6 @@ footer#footer .socials a {
 @media (max-width: 700px) {
   #newsletter form {
     float: none;
-    padding: 0 20px;
   }
   #newsletter:before {
     opacity: 0.3;

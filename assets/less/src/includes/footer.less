@@ -35,11 +35,15 @@ footer#footer {
 
   .blocks {
     float: left;
-    margin: 30px;
     vertical-align: top;
-    max-width: 420px;
+    max-width: 360px;
     border-right: 4px solid rgba(255, 255, 255, 0.05);
     padding-right: 30px;
+    box-sizing: border-box;
+    padding: 30px;
+
+    
+
     &:after {
       clear: both;
       display: block;
@@ -91,9 +95,11 @@ footer#footer {
   }
   .links {
     vertical-align: top;
+    width:calc(~"100% - 360px");
 
     float: right;
-    margin: 30px;
+    padding: 30px;
+    box-sizing: border-box;
 
     ul {
       li {
@@ -130,13 +136,17 @@ footer#footer {
     .blocks {
       border-right: none;
       margin: 0;
-      padding: 0;
+      padding: 0 15px;
+      float: none;
+      max-width: 100%;
     }
 
     .links {
       border-top: 4px solid rgba(255, 255, 255, 0.05);
       margin: 0;
+      padding:0 15px;
       padding-top: 25px;
+      width:100%;
     }
   }
 }
