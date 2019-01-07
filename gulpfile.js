@@ -120,8 +120,8 @@ gulp.task("default", () => {
     "node",
     [
       "node_modules/serendip-web/bin/server.js",
-      "--tunnel",
-      "--tunnel-subdomain=serendip-agency"
+      // "--tunnel",
+      // "--tunnel-subdomain=serendip-agency"
     ],
     {
       stdio: "inherit"

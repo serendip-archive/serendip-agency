@@ -9,10 +9,10 @@
   "author": "Mohsen Esmaeili <m-esm@hotmail.com>",
   "license": "ISC",
   "dependencies": {
-    "xml-parse": "^0.3.1",
-    "xml2js": "^0.4.19"
+    "serendip-web": "^1.0.18"
   },
   "devDependencies": {
+    "xml2js": "^0.4.19",
     "@types/jquery": "^3.3.29",
     "@types/jsdom": "^12.2.1",
     "@types/xml2js": "^0.4.3",

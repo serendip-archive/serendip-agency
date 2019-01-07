@@ -77,6 +77,11 @@
   top: 0;
   left: 0;
 }
+#home-astro .half-moon svg {
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
 #home-astro .small-moon {
   width: 10%;
   height: 10%;
@@ -170,6 +175,7 @@
   padding: 30px;
   box-sizing: border-box;
   vertical-align: top;
+  max-width: 340px;
 }
 #home-advantages .blocks .block .icon {
   height: 110px;
@@ -216,7 +222,7 @@
   display: block;
   position: relative;
 }
-#home-technologies .subtitle {
+#home-technologies .title {
   height: 5%;
   position: absolute;
   width: 100%;
