@@ -4,8 +4,11 @@ var path = require("path");
 var child = require("child_process");
 var fs = require("fs");
 var glob = require("glob");
+var postcss = require("gulp-postcss");
 
 var livereload = require("gulp-livereload");
+var autoprefixer = require("autoprefixer");
+var cssnano = require("cssnano");
 
 var xml2js = require("xml2js");
 var xmlParseString = xml2js.parseString;
@@ -105,21 +108,32 @@ var compileLess = () => {
     .pipe(gulp.dest("./assets/less/dist/"))
     .pipe(livereload());
 };
+var minifyCss = function() {
+  var plugins = [autoprefixer({ browsers: ["last 1 version"] }), cssnano()];
+
+  return gulp
+    .src("./assets/less/dist/bundle.css")
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest("./assets/less/dist"));
+};
+
+gulp.task("postcss", minifyCss);
 
 gulp.task("less", compileLess);
 
 gulp.task("default", () => {
   livereload.listen();
 
-  gulp.watch(["./assets/less/src/**/*.less"], compileLess);
+  gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
 
   createSvgIconSetPartial();
   compileLess();
+  minifyCss();
 
   child.spawn(
     "node",
     [
-      "node_modules/serendip-web/bin/server.js",
+      "node_modules/serendip-web/bin/server.js"
       // "--tunnel",
       // "--tunnel-subdomain=serendip-agency"
     ],
