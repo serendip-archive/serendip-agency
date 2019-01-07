@@ -27,8 +27,14 @@
     {{/if}}
 
     {{#if data.home.crmKeyPoints.banner.visible}}
-    <img src="/assets/svg/{{data.home.crmKeyPoints.banner.number}}.svg" alt="" class="banner" data-aos-duration="1000"
-        data-aos="fade-in" data-aos-delay="1000">
+
+    <div class="banner" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="1000">
+        {{> (append 'svg-' data.home.crmKeyPoints.banner.number)}}
+
+        <img src="/assets/svg/28.svg" alt="" />
+
+    </div>
+
     {{/if}}
 
 </div>

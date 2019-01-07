@@ -5,7 +5,10 @@ function init() {
     const navToggleButton = document.getElementById("nav-toggle");
     const nav = document.getElementById("nav");
 
-    document.getElementById("loader").remove();
+    document.getElementById("loader").classList.add("fade-out");
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("hidden");
+    }, 500);
 
     document.body.classList.add("scroll");
 
@@ -21,5 +24,5 @@ function init() {
 }
 
 window.onload = function() {
-   init();
+  init();
 };

@@ -9,46 +9,21 @@
   left: 0;
   width: 100%;
   z-index: 9999;
+transition: all ease .3s;
+  &.fade-out{
+opacity: 0;
+}
+&.hidden{
+  display: none;
+}
 
-  .bg {
+  .bg svg{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
-    .fil0 {
-      fill: none;
-    }
-
-    .fil6 {
-      fill: #a6b7de;
-    }
-
-    .fil4 {
-      fill: #fefefe;
-      fill-rule: nonzero;
-    }
-
-    .fil1 {
-      fill: #d2ae6d;
-      fill-rule: nonzero;
-    }
-
-    .fil3 {
-      fill: #f2d394;
-      fill-rule: nonzero;
-    }
-
-    .fil2 {
-      fill: white;
-      fill-rule: nonzero;
-    }
-
-    .fil5 {
-      fill: white;
-      fill-rule: nonzero;
-    }
+     
   }
 
   .text {

@@ -9,38 +9,12 @@
   width: 100%;
   z-index: 9999;
 }
-#loader .bg {
+#loader .bg svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
-#loader .bg .fil0 {
-  fill: none;
-}
-#loader .bg .fil6 {
-  fill: #a6b7de;
-}
-#loader .bg .fil4 {
-  fill: #fefefe;
-  fill-rule: nonzero;
-}
-#loader .bg .fil1 {
-  fill: #d2ae6d;
-  fill-rule: nonzero;
-}
-#loader .bg .fil3 {
-  fill: #f2d394;
-  fill-rule: nonzero;
-}
-#loader .bg .fil2 {
-  fill: white;
-  fill-rule: nonzero;
-}
-#loader .bg .fil5 {
-  fill: white;
-  fill-rule: nonzero;
 }
 #loader .text {
   font-weight: 100;

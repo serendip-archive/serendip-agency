@@ -4598,6 +4598,50 @@ footer#footer .socials a {
   fill: #F7F2E6;
   fill-rule: nonzero;
 }
+#svg-loader-logo .fil0 {
+  fill: none;
+}
+#svg-loader-logo .fil4 {
+  fill: white;
+}
+#svg-loader-logo .fil3 {
+  fill: #DDBC7D;
+  fill-rule: nonzero;
+}
+#svg-loader-logo .fil2 {
+  fill: #CA9C66;
+  fill-rule: nonzero;
+}
+#svg-loader-logo .fil1 {
+  fill: #D2AE6D;
+  fill-rule: nonzero;
+}
+#svg-loader-star-back .fil0 {
+  fill: none;
+}
+#svg-loader-star-back .fil6 {
+  fill: #A6B7DE;
+}
+#svg-loader-star-back .fil4 {
+  fill: #FEFEFE;
+  fill-rule: nonzero;
+}
+#svg-loader-star-back .fil1 {
+  fill: #D2AE6D;
+  fill-rule: nonzero;
+}
+#svg-loader-star-back .fil3 {
+  fill: #F2D394;
+  fill-rule: nonzero;
+}
+#svg-loader-star-back .fil2 {
+  fill: white;
+  fill-rule: nonzero;
+}
+#svg-loader-star-back .fil5 {
+  fill: white;
+  fill-rule: nonzero;
+}
 #svg-menu-about-1 .fil0 {
   fill: none;
 }

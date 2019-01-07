@@ -25,7 +25,14 @@ var readDirWithGlob = pathPattern => {
 var createSvgIconSetPartial = async () => {
   var svgDirPath = path.join(__dirname, "assets", "svg");
   var partialsPath = path.join(__dirname, "_partials", "svg");
-  var lessPath = path.join(__dirname, "assets", "less", "src", "svgs.less");
+  var lessPath = path.join(
+    __dirname,
+    "assets",
+    "less",
+    "src",
+    "layout",
+    "svgs.less"
+  );
 
   var builder = new xml2js.Builder({
     rootName: "svg"
@@ -53,21 +60,24 @@ var createSvgIconSetPartial = async () => {
           .text();
 
         lessToWrite += `#${svgId}{ ${style} }`;
-        //    console.log(style.text());
 
         xmlParseString(svgContent, (err, xml) => {
           delete xml.svg.defs;
 
-          if (xml.svg.g && xml.svg.g[0] && xml.svg.g[0].g)
-            xml.svg.g = xml.svg.g[0].g;
+          if (xml.svg.g && xml.svg.g[0] && xml.svg.g[0].metadata)
+            delete xml.svg.g[0].metadata;
+
+          xml.svg.$ = {};
+          xml.svg.$.id = svgId;
+          xml.svg.$.viewBox = originalSvg.attr("viewBox");
 
           var resXml = builder.buildObject(xml.svg);
           var lines = resXml.split("\n");
           lines.shift();
-          lines.shift();
-          lines.unshift(
-            `<svg id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
-          );
+          //   lines.shift();
+          // lines.unshift(
+          //   `<svg id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
+          // );
           resXml = lines.join("\n");
 
           fs.writeFileSync(
@@ -89,7 +99,7 @@ var compileLess = () => {
     .src("./assets/less/src/*.less")
     .pipe(
       less({
-        paths: [path.join(__dirname, "./assets/less/src/", "includes")]
+        // paths: [path.join(__dirname, "./assets/less/src/", "includes")]
       })
     )
     .pipe(gulp.dest("./assets/less/dist/"))
