@@ -46,16 +46,22 @@ var createSvgIconSetPartial = async () => {
 
   await Promise.all(
     svgs.map(filePath => {
+
       return new Promise((resolve, reject) => {
         var svgContent = fs.readFileSync(filePath).toString();
 
         var originalSvg = $($.parseXML(svgContent)).find("svg");
 
         var svgPosix = filePath
-          .replace(svgDirPath, "")
-          .substr(1)
-          .replace("/", "-")
+          .replace(/\\/g, '/')
+          .replace(svgDirPath.replace(/\\/g, '/'), "")
+          .replace(/\//g, "-")
           .replace(".svg", "");
+
+        if (svgPosix.startsWith('-'))
+          svgPosix = svgPosix.substr(1);
+
+
         var svgId = `svg-${svgPosix}`;
 
         var style = $($.parseXML(svgContent))
@@ -82,11 +88,12 @@ var createSvgIconSetPartial = async () => {
           //   `<svg id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
           // );
           resXml = lines.join("\n");
-
           fs.writeFileSync(
             path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
             resXml
           );
+
+console.log(svgId);
 
           resolve();
         });
@@ -108,7 +115,7 @@ var compileLess = () => {
     .pipe(gulp.dest("./assets/less/dist/"))
     .pipe(livereload());
 };
-var minifyCss = function() {
+var minifyCss = function () {
   var plugins = [autoprefixer({ browsers: ["last 1 version"] }), cssnano()];
 
   return gulp
@@ -121,12 +128,12 @@ gulp.task("postcss", minifyCss);
 
 gulp.task("less", compileLess);
 
-gulp.task("default", () => {
+gulp.task("default",async () => {
   livereload.listen();
 
   gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
 
-  createSvgIconSetPartial();
+  await createSvgIconSetPartial();
   compileLess();
   minifyCss();
 

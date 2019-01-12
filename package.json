@@ -8,9 +8,7 @@
   },
   "author": "Mohsen Esmaeili <m-esm@hotmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "serendip-web": "^1.0.18"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jquery": "^3.3.29",
     "@types/jsdom": "^12.2.1",
@@ -25,7 +23,7 @@
     "gulp-postcss": "^8.0.0",
     "jquery": "^3.3.1",
     "jsdom": "^13.1.0",
-    "serendip-web": "^1.0.15",
+    "serendip-web": "^1.0.21",
     "xml2js": "^0.4.19"
   }
 }
