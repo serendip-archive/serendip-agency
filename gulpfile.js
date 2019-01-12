@@ -93,7 +93,7 @@ var createSvgIconSetPartial = async () => {
             resXml
           );
 
-console.log(svgId);
+          console.log('bundling svg as hbs: ' + svgId);
 
           resolve();
         });
@@ -128,7 +128,7 @@ gulp.task("postcss", minifyCss);
 
 gulp.task("less", compileLess);
 
-gulp.task("default",async () => {
+gulp.task("default", async () => {
   livereload.listen();
 
   gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
