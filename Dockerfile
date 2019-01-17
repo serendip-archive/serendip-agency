@@ -10,4 +10,4 @@ EXPOSE 2080
 
 USER node
 
-CMD [ "node", "node_modules/serendip-web/bin/server.js -p 2080" ]
+CMD [ "node", "node_modules/serendip-web/bin/server.js", " -p 2080" ]
