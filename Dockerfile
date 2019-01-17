@@ -1,17 +1,13 @@
 FROM node:alpine
 
-RUN mkdir /website
-WORKDIR /website
+WORKDIR /app
 
-LABEL traefik.backend=serendip-agency
-LABEL traefik.docker.network=bridge
-LABEL traefik.enable=true  
-LABEL traefik.frontend.entryPoints=http,https
-LABEL traefik.frontend.rule=Host:demo.serendip.agency
-LABEL traefik.port=2080 
+COPY . .
 
-RUN npm i -g serendip-web
+RUN npm install serendip-web
 
-COPY . /website/
+EXPOSE 2080
 
-RUN serendip-web --dir=/website
+USER node
+
+CMD [ "node", "node_modules/serendip-web/bin/server.js -p 2080" ]

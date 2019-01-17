@@ -46,21 +46,18 @@ var createSvgIconSetPartial = async () => {
 
   await Promise.all(
     svgs.map(filePath => {
-
       return new Promise((resolve, reject) => {
         var svgContent = fs.readFileSync(filePath).toString();
 
         var originalSvg = $($.parseXML(svgContent)).find("svg");
 
         var svgPosix = filePath
-          .replace(/\\/g, '/')
-          .replace(svgDirPath.replace(/\\/g, '/'), "")
+          .replace(/\\/g, "/")
+          .replace(svgDirPath.replace(/\\/g, "/"), "")
           .replace(/\//g, "-")
           .replace(".svg", "");
 
-        if (svgPosix.startsWith('-'))
-          svgPosix = svgPosix.substr(1);
-
+        if (svgPosix.startsWith("-")) svgPosix = svgPosix.substr(1);
 
         var svgId = `svg-${svgPosix}`;
 
@@ -79,6 +76,8 @@ var createSvgIconSetPartial = async () => {
           xml.svg.$ = {};
           xml.svg.$.id = svgId;
           xml.svg.$.viewBox = originalSvg.attr("viewBox");
+          if (originalSvg.attr("style"))
+            xml.svg.$.style = originalSvg.attr("style");
 
           var resXml = builder.buildObject(xml.svg);
           var lines = resXml.split("\n");
@@ -93,7 +92,7 @@ var createSvgIconSetPartial = async () => {
             resXml
           );
 
-          console.log('bundling svg as hbs: ' + svgId);
+          console.log("bundling svg as hbs: " + svgId);
 
           resolve();
         });
@@ -115,7 +114,7 @@ var compileLess = () => {
     .pipe(gulp.dest("./assets/less/dist/"))
     .pipe(livereload());
 };
-var minifyCss = function () {
+var minifyCss = function() {
   var plugins = [autoprefixer({ browsers: ["last 1 version"] }), cssnano()];
 
   return gulp
@@ -127,6 +126,7 @@ var minifyCss = function () {
 gulp.task("postcss", minifyCss);
 
 gulp.task("less", compileLess);
+
 
 gulp.task("default", async () => {
   livereload.listen();

@@ -1,8 +1,7 @@
 {
   "name": "serendip-agency",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "source code of serendip.agency website https://serendip.agency",
   "scripts": {
     "start": "gulp"
   },
@@ -23,7 +22,7 @@
     "gulp-postcss": "^8.0.0",
     "jquery": "^3.3.1",
     "jsdom": "^13.1.0",
-    "serendip-web": "^1.0.21",
+    "serendip-web": "^1.0.24",
     "xml2js": "^0.4.19"
   }
 }
