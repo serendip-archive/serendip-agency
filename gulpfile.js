@@ -57,6 +57,14 @@ var createSvgIconSetPartial = async () => {
           .replace(/\//g, "-")
           .replace(".svg", "");
 
+          var relativeFilePath = filePath
+          .replace(/\\/g, "/")
+          .replace(svgDirPath.replace(/\\/g, "/"), "");
+
+          console.log(relativeFilePath);
+
+        
+
         if (svgPosix.startsWith("-")) svgPosix = svgPosix.substr(1);
 
         var svgId = `svg-${svgPosix}`;
@@ -87,9 +95,11 @@ var createSvgIconSetPartial = async () => {
           //   `<svg id="${svgId}" viewBox="${originalSvg.attr("viewBox")}">`
           // );
           resXml = lines.join("\n");
+
           fs.writeFileSync(
             path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-            resXml
+          //  resXml
+          `<img src="/assets/svg${relativeFilePath}" />`
           );
 
           console.log("bundling svg as hbs: " + svgId);
