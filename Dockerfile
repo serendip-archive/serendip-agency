@@ -1,7 +1,6 @@
 FROM node:alpine
 WORKDIR /app
 COPY . .
-RUN npm set registry http://npm.serendip.cloud
 RUN npm install serendip-web
 EXPOSE 2080
 USER node
