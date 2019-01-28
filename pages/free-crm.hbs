@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {{> head}}
+
+
+</head>
+
+<body>
+
+    {{> loader}}
+    {{> nav}}
+    {{> header}}
+
+
+
+    <div class="inner-body">
+
+        <div id="free-crm-page">
+
+            <div class="top-banner" data-aos-duration="500" data-aos="fade-in">
+                {{> svg-free-crm-free-crm-1}}
+            </div>
+
+            <div class="container">
+                {{#if data.free-crm.section-1.visible}}
+                <section data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.free-crm.section-1.title}}
+                    </div>
+
+                    <p>
+                        {{ data.free-crm.section-1.p}}
+                    </p>
+
+                    {{#each data.free-crm.section-1.buttons}}
+                    <a href="{{buttonLink}}" class="button in-array primary">
+                        {{buttonText}}
+                    </a>
+                    {{/each}}
+                    <div class="clearfix"></div>
+
+                </section>
+                {{/if}}
+                {{#if data.free-crm.section-2.visible}}
+                <section data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.free-crm.section-2.title}}
+                    </div>
+
+                    {{#each data.free-crm.section-2.sections}}
+                    <div class="sub-section">
+
+                        <p>
+                            {{ p }}
+                        </p>
+                        {{#if buttonText}}
+                        <a href="{{buttonLink}}" class="button primary">
+                            {{buttonText}}
+                        </a>
+                        {{/if}}
+                        <div class="clearfix"></div>
+
+                    </div>
+                    {{/each}}
+                    <div class="clearfix"></div>
+
+
+                </section>
+                {{/if}}
+
+                <div class="bg">
+                    {{> svg-free-crm-free-crm-4}}
+                </div>
+
+            </div>
+
+
+        </div>
+
+        {{> footer}}
+
+    </div>
+
+
+
+
+</body>
+{{> scripts}}
+
+</html>
