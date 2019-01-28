@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {{> head}}
+
+
+</head>
+
+<body>
+
+    {{> loader}}
+    {{> nav}}
+    {{> header}}
+
+
+
+    <div class="inner-body">
+
+        <div id="cloud-page">
+
+            <div class="top-banner" data-aos-duration="500" data-aos="fade-in">
+                {{> svg-cloud-cloud-1}}
+            </div>
+
+            <div class="container">
+                {{#if data.cloud.section-1.visible}}
+                <section class="section-1" data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.cloud.section-1.title}}
+                    </div>
+
+                    <p>
+                        {{ data.cloud.section-1.p}}
+                    </p>
+
+                    {{#each data.cloud.section-1.buttons}}
+                    <a href="{{buttonLink}}" class="button in-array primary">
+                        {{buttonText}}
+                    </a>
+                    {{/each}}
+                    <div class="clearfix"></div>
+
+                </section>
+                {{/if}}
+                {{#if data.cloud.section-2.visible}}
+                <section data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.cloud.section-2.title}}
+                    </div>
+                    <p>
+                        {{ data.cloud.section-2.p }}
+                    </p>
+                    {{#if data.cloud.section-2.buttonText}}
+                    <a href="{{data.cloud.section-2.buttonLink}}" class="button primary">
+                        {{data.cloud.section-2.buttonText}}
+                    </a>
+                    {{/if}}
+                    <div class="clearfix"></div>
+
+                    <div class="clearfix"></div>
+
+
+                </section>
+                {{/if}}
+                {{#if data.cloud.section-3.visible}}
+                <section data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.cloud.section-3.title}}
+                    </div>
+                    <p>
+                        {{ data.cloud.section-3.p }}
+                    </p>
+                    {{#if data.cloud.section-3.buttonText}}
+                    <a href="{{data.cloud.section-3.buttonLink}}" class="button primary">
+                        {{data.cloud.section-3.buttonText}}
+                    </a>
+                    {{/if}}
+                    <div class="clearfix"></div>
+
+                    <div class="clearfix"></div>
+
+
+                </section>
+                {{/if}}
+                {{#if data.cloud.section-4.visible}}
+                <section data-aos-duration="500" data-aos="fade-in">
+
+                    <div class="subtitle">
+                        {{ data.cloud.section-4.title}}
+                    </div>
+                    <p>
+                        {{ data.cloud.section-4.p }}
+                    </p>
+                    {{#if data.cloud.section-4.buttonText}}
+                    <a href="{{data.cloud.section-4.buttonLink}}" class="button primary">
+                        {{data.cloud.section-4.buttonText}}
+                    </a>
+                    {{/if}}
+                    <div class="clearfix"></div>
+
+                    <div class="clearfix"></div>
+
+
+                </section>
+                {{/if}}
+
+              
+
+            </div>
+  <div class="bg">
+                    {{> svg-cloud-cloud-7}}
+                </div>
+
+        </div>
+
+        {{> footer}}
+
+    </div>
+
+
+
+
+</body>
+{{> scripts}}
+
+</html>
