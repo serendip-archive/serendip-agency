@@ -2,11 +2,11 @@
 
     {{#if data.home.crmKeyPoints.visible}}
 
-    <h1 class="title" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="500">
+    <h1 class="title" data-aos-duration="1000" data-aos="fade-in" >
         {{ data.home.crmKeyPoints.title}}
     </h1>
 
-    <div class="blocks" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="700">
+    <div class="blocks" data-aos-duration="1000" data-aos="fade-in" >
         {{#each data.home.crmKeyPoints.blocks}}
 
         <div class="block">
@@ -28,7 +28,7 @@
 
     {{#if data.home.crmKeyPoints.banner.visible}}
 
-    <div class="banner" data-aos-duration="1000" data-aos="fade-in" data-aos-delay="1000">
+    <div class="banner" data-aos-duration="1000" data-aos="fade-in" >
         {{> (append 'svg-' data.home.crmKeyPoints.banner.number)}}
 
 
