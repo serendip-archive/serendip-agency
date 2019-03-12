@@ -2,7 +2,7 @@
  
 function init() {
   setTimeout(() => {
-    AOS.init();
+  //  AOS.init();
 
     const navToggleButton = document.getElementById("nav-toggle");
     const nav = document.getElementById("nav");

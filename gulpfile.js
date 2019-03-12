@@ -61,7 +61,6 @@ var createSvgIconSetPartial = async () => {
           .replace(/\\/g, "/")
           .replace(svgDirPath.replace(/\\/g, "/"), "");
 
-          console.log(relativeFilePath);
 
         
 

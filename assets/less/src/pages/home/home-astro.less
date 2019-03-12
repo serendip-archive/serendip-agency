@@ -1,10 +1,11 @@
 #home-astro {
   position: relative;
-
+  margin-top: -60px;
   .bg {
     width: 100%;
     position: relative;
     display: block;
+    filter: drop-shadow(0 1px 10px rgba(190, 162, 113, 0.4));
   }
   > div {
     position: absolute;
@@ -25,8 +26,10 @@
     left: 25%;
     z-index: 20;
 
-    svg {
+    svg,
+    img {
       height: 100%;
+      // filter: drop-shadow( 0 0 10px #DBBB82);
     }
   }
 
@@ -38,11 +41,11 @@
     left: 0;
     overflow: hidden;
 
-    svg{
-      position: absolute;
-      top:0;
-      left:-20px;
-
+    img {
+      height: 100%;
+      width: auto;
+      margin: 0 auto 0 0;
+      // filter: drop-shadow( 0 3px  10px #DBBB82);
     }
   }
 
@@ -75,7 +78,6 @@
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 15%;
     text-align: right;
     box-sizing: border-box;
     padding: 30px;
@@ -108,7 +110,7 @@
     .text-logo {
       width: 40%;
       height: 30%;
-      top: 40%;
+      top: 50%;
       left: 55%;
     }
     .start {
@@ -118,7 +120,7 @@
       }
     }
     .extra-small-moon {
-      top: 35%;
+      top: 45%;
       left: 70%;
     }
 

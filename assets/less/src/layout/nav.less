@@ -1,60 +1,60 @@
 @keyframes closeBefore {
   0% {
-    top: 30px;
+    top: 16px;
   }
   30% {
-    top: 25px;
+    top: 15px;
     transform: rotate(-5deg);
     height: 6px;
     width: 45%;
   }
 
   60% {
-    top: 35px;
+    top: 25px;
     transform: rotate(10deg);
     height: 6px;
     width: 45%;
   }
 
   70% {
-    top: 45px;
+    top: 35px;
     transform: rotate(10deg);
   }
   100% {
-    top: 30px;
+    top: 20px;
   }
 }
 
 @keyframes closeAfter {
   0% {
-    top: 50px;
+    top: 32px;
   }
   30% {
-    top: 45px;
+    top: 35px;
     transform: rotate(5deg);
     height: 6px;
   }
 
   40% {
-    top: 35px;
+    top: 25px;
     transform: rotate(-5deg);
   }
   50% {
-    top: 40px;
+    top: 30px;
     transform: rotate(-7deg);
     height: 6px;
   }
   60% {
-    top: 55px;
+    top: 40px;
     transform: rotate(-5deg);
     width: 55%;
   }
   80% {
-    top: 35px;
+    top: 25px;
     transform: rotate(-5deg);
   }
   100% {
-    top: 50px;
+    top: 40px;
   }
 }
 
@@ -62,55 +62,74 @@ div#nav-toggle {
   cursor: pointer;
   position: fixed;
 
-  background: #eed5ab;
-  border-radius: 60% 0 60% 100%;
- 
+  background: #f6efe2;
+  border-radius: 100%;
+  box-shadow: -10px -10px 10px rgba(221, 221, 221, 0.5) inset;
+
+  // box-shadow: -10px -10px 10px rgba(221, 221, 221, 0.5) inset,
+  // -5px 5px 30px rgba(100, 100, 100, 0.4);
+
   z-index: 101;
 
-  width: 100px;
-  height: 100px;
-  top: 75px;
-  right: -10px;
+  width: 50px;
+  height: 50px;
+  top: 5px;
+  right: 55px;
   content: " ";
   display: block;
   border: none;
   outline: none;
 
-  
-
-  &:after,
-  &:before {
-    display: block;
-    height: 8px;
+  .bg{
     position: absolute;
-    left: 25%;
-    width: 50%;
-    background: #dbbb82;
-    border-radius: 100%;
+    top: 0;
+    left:0;
+    width:100%;
+    height: 100%;
+    content:' ';
+    z-index: -1;
+  }
+
+  .ufo-1,
+  .ufo-2 {
+    display: block;
+    height: 18px;
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    // background: #dbbb82;
+
     content: " ";
     transform-origin: center center;
     transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
-    box-shadow: 0 0 3px #fff;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      margin: 0 auto;
+      display: block;
+      // filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+    }
   }
 
-  &:before {
+  .ufo-1 {
+    top: 16px;
+  }
+  .ufo-2 {
     top: 30px;
   }
-  &:after {
-    top: 50px;
-  }
 
-  &:hover:before,
-  &:active:before {
+  &:hover .ufo-1,
+  &:active .ufo-1 {
     animation-name: closeBefore;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
     animation-duration: 1.1s;
     animation-delay: 0;
-    background: #d5c19e;
   }
-  &:hover:after,
-  &:active:after {
+  &:hover .ufo-2,
+  &:active .ufo-2 {
     animation-name: closeAfter;
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
@@ -119,29 +138,32 @@ div#nav-toggle {
     animation-duration: 2.3s;
   }
 
-  &.active:after {
+  &.active .ufo-2 {
     transform: rotate(-45deg);
-    top: calc(~"50% - 10px");
+    border-radius: 100%;
+    top: calc(~"50% - 7px");
     animation: none;
   }
-  &.active:before {
+  &.active .ufo-1 {
     transform: rotate(45deg);
-    top: calc(~"50% - 10px");
+    top: calc(~"50% - 7px");
     animation: none;
   }
 }
 nav#nav {
+  overflow: hidden;
   box-sizing: border-box;
   z-index: 100;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 45px;
+  width: calc(100% - 90px);
   height: 100%;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.5);
+ // background: #453e5d;
   display: none;
   opacity: 0;
-  transition: opacity linear .7s;
+  transition: opacity linear 0.7s;
   &.fadeIn {
     opacity: 1;
     &:before {
@@ -164,17 +186,17 @@ nav#nav {
     width: 140vw;
     background: rgba(87, 110, 158, 0.75);
     background: rgba(219, 186, 130, 0.85);
-    background: #f3e0c2;
-    border-radius: 0% 0 0 90%;
-    box-shadow: 0 5px 100px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border-radius: 0% 0 0 100%;
+    box-shadow: 0 5px 100px rgba(0, 0, 0, 0.35);
     z-index: 0;
     transition: all linear 0.5s;
   }
 
   ul {
     position: absolute;
-    top: 120px;
-    right: 75px;
+    top: 70px;
+    right: 10px;
 
     height: 75vh;
     z-index: 3;
@@ -183,13 +205,7 @@ nav#nav {
     padding: 0 15px 0 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    overflow-y: hidden;
-    border-right: 2px solid transparent;
-
-    &:hover {
-      overflow-y: scroll;
-      border-right: none;
-    }
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
       width: 2px;
@@ -206,7 +222,7 @@ nav#nav {
     li {
       display: block;
       width: 100%;
-      margin: 0 0 5px 0;
+      margin: 0;
       position: relative;
       direction: rtl;
       text-align: right;
@@ -220,9 +236,9 @@ nav#nav {
       }
 
       a {
-        font-size: @size3;
+        font-size: @size2;
 
-        display: inline-block;
+        display: block;
         text-decoration: none;
 
         color: #fff;
@@ -259,17 +275,16 @@ nav#nav {
           top: 1px;
         }
         .icon {
-          width: 30px;
-          height: 30px;
+          width: 40px;
+          height: 40px;
           display: inline-block;
-          box-shadow: -2px 2px 0px rgba(255, 255, 255, 0.5);
-          box-shadow: -1px 1px 0px rgba(0, 0, 0, 0.15);
+          // box-shadow: -2px 2px 0px rgba(255, 255, 255, 0.5);
+          // box-shadow: -1px 1px 0px rgba(0, 0, 0, 0.15);
           box-sizing: border-box;
           margin-left: 5px;
           line-height: 0;
           border-radius: 100%;
           vertical-align: middle;
- 
         }
       }
     }
@@ -289,15 +304,16 @@ nav#nav {
 
 @media (max-width: 700px) {
   div#nav-toggle {
-    transform: scale(0.6);
-    top: 55px;
-    transform-origin: top right;
+     transform: scale(.85);
+    top: 2px;
+    right: 17px;
+
+    transform-origin: center center;
   }
   nav#nav {
+    left:15px;
+    width: calc(100% - 30px);
     ul {
-      top: 80px;
-      right: 40px;
-      padding-top: 30px;
       height: calc(~"100% - 80px");
       overflow-y: scroll;
       li {

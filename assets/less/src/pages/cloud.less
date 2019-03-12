@@ -1,18 +1,21 @@
 #cloud-page {
   position: relative;
   .top-banner {
-    padding: 80px;
+    padding: 60px;
     padding-right: 0;
 
+    max-width: calc(100% - 600px);
     img {
-      height: 60vh;
+      
       width: auto;
+      vertical-align: top;
     }
     margin: 0 0 0 auto;
+  
   }
 
   .bg {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto 0 0;
     img {
     }
@@ -47,22 +50,27 @@
 }
 
 @media (max-width: 1200px) {
-    #cloud-page .top-banner img {
-      height: 30vh;
-    }
-    #cloud-page section.section-1 {
-      margin: -5vh auto 120px auto !important;
-    }
+  #cloud-page .top-banner img {
+    height: 30vh;
   }
-
-  
+  #cloud-page section.section-1 {
+    margin: -5vh auto 120px auto !important;
+  }
+}
 
 @media (max-width: 750px) {
-    #cloud-page .top-banner{
-        padding-top:40px;
-    }
-    #cloud-page section.section-1 {
-      margin: 0 auto 120px auto !important;
+  #cloud-page .top-banner {
+    padding:0;
+    padding-top: 55px;
+    margin-bottom: 20px;
+
+    max-width: unset;
+    img{
+      width:95%;
+      height: auto;
     }
   }
-  
+  #cloud-page section.section-1 {
+    margin: 0 auto 60px auto !important;
+  }
+}
