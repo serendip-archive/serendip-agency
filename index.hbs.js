@@ -2,7 +2,7 @@
 
 async () => {
   return {
-    handlebars: Modules.handlebars,
+   // handlebars: Modules.handlebars,
     model: {}
   };
 };
