@@ -16,6 +16,7 @@ var jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = new JSDOM("").window;
+
 global.document = document;
 
 var $ = (jQuery = require("jquery")(window));
@@ -68,6 +69,14 @@ var createSvgIconSetPartial = async () => {
 
         var svgId = `svg-${svgPosix}`;
 
+        fs.writeFileSync(
+          path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
+        //  resXml
+        `<img src="/assets/svg${relativeFilePath}" />`
+        );
+
+        return resolve();
+
         var style = $($.parseXML(svgContent))
           .find("style")
           .text();
@@ -97,9 +106,8 @@ var createSvgIconSetPartial = async () => {
 
           fs.writeFileSync(
             path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-          //  resXml
-          `<img src="/assets/svg${relativeFilePath}" />`
-          );
+            resXml
+           );
 
           console.log("bundling svg as hbs: " + svgId);
 
