@@ -1,9 +1,17 @@
 <header data-aos="fade-bottom">
 
     <div class="inner">
-        <div class="account" title="ورود به داشبورد serendip.cloud">
+
+        <div class="account" href="/account" title="ورود به داشبورد serendip.cloud">
             {{> svg-2}}
+
+            {{#unless data.req.user}}
             <span>ورود</span>
+            {{/unless}}
+
+            {{#if data.req.user}}
+            <span>حساب</span>
+            {{/if}}
         </div>
 
         <div class="search" title="جست و جو در سایت">

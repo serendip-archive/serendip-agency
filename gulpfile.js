@@ -58,12 +58,12 @@ var createSvgIconSetPartial = async () => {
           .replace(/\//g, "-")
           .replace(".svg", "");
 
-          var relativeFilePath = filePath
+        var relativeFilePath = filePath
           .replace(/\\/g, "/")
           .replace(svgDirPath.replace(/\\/g, "/"), "");
 
 
-        
+
 
         if (svgPosix.startsWith("-")) svgPosix = svgPosix.substr(1);
 
@@ -71,8 +71,8 @@ var createSvgIconSetPartial = async () => {
 
         fs.writeFileSync(
           path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-        //  resXml
-        `<img src="/assets/svg${relativeFilePath}" />`
+          //  resXml
+          `<img src="/assets/svg${relativeFilePath}" />`
         );
 
         return resolve();
@@ -107,7 +107,7 @@ var createSvgIconSetPartial = async () => {
           fs.writeFileSync(
             path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
             resXml
-           );
+          );
 
           console.log("bundling svg as hbs: " + svgId);
 
@@ -131,7 +131,7 @@ var compileLess = () => {
     .pipe(gulp.dest("./assets/less/dist/"))
     .pipe(livereload());
 };
-var minifyCss = function() {
+var minifyCss = function () {
   var plugins = [autoprefixer({ browsers: ["last 1 version"] }), cssnano()];
 
   return gulp
@@ -144,17 +144,12 @@ gulp.task("postcss", minifyCss);
 
 gulp.task("less", compileLess);
 
+let server;
+function run(done) {
 
-gulp.task("default", async () => {
-  livereload.listen();
+  if (server && server.kill) server.kill();
 
-  gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
-
-  await createSvgIconSetPartial();
-  compileLess();
-  minifyCss();
-
-  child.spawn(
+  server = child.spawn(
     "node",
     [
       "node_modules/serendip-web/bin/server.js"
@@ -165,4 +160,26 @@ gulp.task("default", async () => {
       stdio: "inherit"
     }
   );
+
+  if (done) done();
+
+}
+
+gulp.task('run', run);
+
+
+
+gulp.task("default", async () => {
+  livereload.listen();
+
+  gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
+
+  gulp.watch('server.js', gulp.series("run"));
+
+  await createSvgIconSetPartial();
+  compileLess();
+  minifyCss();
+
+  run();
+
 });
