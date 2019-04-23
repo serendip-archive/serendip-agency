@@ -157,8 +157,9 @@
             user: req.user,
             token: req.userToken,
             ip: req.ip(),
-            useragent: req.useragent()
-            
+            useragent: req.useragent(),
+            url: req.url,
+            query: req.query
           }
         }
       }
