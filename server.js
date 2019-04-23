@@ -41,6 +41,10 @@
         db: dbService
       };
 
+      this.modules.handlebars.registerHelper("rpd", string => {
+        return (this.modules.utils.text.replaceEnglishDigitsWithPersian(string));
+      });
+
       this.modules.handlebars.registerHelper("syntaxHighlight", obj => {
         var json = JSON.stringify(obj, null, 2);
 
@@ -159,7 +163,9 @@
             ip: req.ip(),
             useragent: req.useragent(),
             url: req.url,
-            query: req.query
+            query: req.query,
+            body: req.body,
+            method: req.method
           }
         }
       }

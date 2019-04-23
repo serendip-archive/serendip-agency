@@ -22,17 +22,90 @@
             <div class="box">
 
 
-        <a href="/account/logout" class="button secondary">
-            <div class="icon">
-                {{> svg-button-icons-sign-up-small-5}}
-            </div>
-            خروج
-
-        </a>
-
-                <pre>
+                {{!-- <pre>
             {{~  syntaxHighlight data.req}}
-</pre>
+</pre> --}}
+
+
+                {{> account-tabs}}
+
+                <section>
+
+                    <div class="column">
+                        <div class="title">
+                            حساب
+                        </div>
+                        <ul>
+                            <li>
+                                <label for=""> تاریخ عضویت:</label>
+                                <div class="en">
+                                    {{ model.user.registerDate }}
+                                </div>
+                            </li>
+
+                            <li>
+                                <label for="">شناسه کابری:</label>
+                                <div class="en">
+                                    {{ data.req.user.username }}
+                                </div>
+                            </li>
+
+                            <li>
+                                <label for="">شناسه یکتا:</label>
+                                <div class="en id">
+                                    {{ data.req.user._id }}
+                                </div>
+                            </li>
+
+                            <li>
+                                <label for="">موبایل:</label>
+                                <div class="en">
+                                    {{ data.req.user.mobileCountryCode }} {{ data.req.user.mobile }}
+                                </div>
+                            </li>
+
+                            <li>
+                                <label for="">ایمیل:</label>
+                                <div class="en">
+                                    {{#if data.req.user.email}} {{ data.req.user.email }} {{/if}}
+
+                                    {{#unless data.req.user.email}} n/a {{/unless}}
+                                </div>
+                            </li>
+
+                            <li>
+                                <label for="">احراز هویت دوفاکتوره:</label>
+                                <div class=" ">
+                                    تنظیم نشده است
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <div class="title">
+                            کسب‌و‌کار‌ها
+                        </div>
+                        <ul>
+                            {{#each model.businesses}}
+                            <li>{{title}}
+                                ({{rpd members.length}} نفر)
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <hr>
+
+                        <label for="">
+                            تعداد رکورد‌ها: {{rpd model.entityCount}}
+                        </label>
+                    </div>
+
+
+
+                </section>
+
+                <div class="clear"></div>
+                {{>account-buttons}}
 
             </div>
         </div>

@@ -52,6 +52,10 @@ body.scroll {
 .en {
   font-family: sans-serif;
 }
+div.en{
+  direction: ltr;
+  text-align: left;
+}
 
 .inner-body {
   margin: 0 45px;
@@ -122,13 +126,26 @@ pre{
   overflow: hidden;
 }
 
+.flip-v{
+  transform: rotate(180deg);
+}
+
+
+.pull-left{
+  float: left;
+}
+
+.pull-right{
+  float: right;
+}
+
 .button {
   margin: 10px 0;
 
   display: inline-block;
 
-  line-height: 32px;
-  padding: 3px 50px 3px 10px;
+  line-height: 28px;
+  padding: 3px 40px 3px 10px;
   text-decoration: none;
   outline: none;
   cursor: pointer;
@@ -137,7 +154,7 @@ pre{
   font-weight: 500;
   color: #333;
   font-size: @size2;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3);
 
   &.in-array {
     margin-left: 10px;
@@ -145,8 +162,8 @@ pre{
 
   .icon {
     content: " ";
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     margin: 0 5px;
     border-radius: 100%;
     display: block;
@@ -162,9 +179,9 @@ pre{
     content: " ";
     display: block;
     position: absolute;
-    right: 40px;
+    right: 34px;
     top: 6px;
-    height: 26px;
+    height: 24px;
     width: 1px;
     background: #777;
   }
@@ -179,6 +196,24 @@ pre{
     &:after {
       background: #fff;
     }
+    &.alternate{
+      border:1px solid #576e9e;
+      background: none;
+      color:#576e9e;
+      box-shadow: none;
+
+      .icon {
+        border-color: #576e9e;
+        img{
+          filter: invert(1);
+        }
+      }
+      &:after {
+        background: #576e9e;
+      }
+    }
+
+
   }
 
   &.secondary {
@@ -191,6 +226,24 @@ pre{
     &:after {
       background: #fff;
     }
+
+    &.alternate{
+      border:1px solid #af926e;
+      background: none;
+      color:#af926e;
+      box-shadow: none;
+      .icon {
+        border-color: #af926e;
+        img{
+          filter: invert(1);
+        }
+      }
+      &:after {
+        background: #af926e;
+      }
+    }
+
+
   }
   &.secondary {
   }

@@ -1,11 +1,81 @@
 #account-page{
     min-height: 300px;
-    padding-top: 80px;
+    padding-top: 70px;
 
+    .id{
+        font-size: 9px;
+    }
     .box{
 
         max-width: 600px;
-        margin:0 auto;
+        margin:30px auto;
+        .buttons{
+            margin-top: 15px;
+            padding-right: 140px;
+        }
         
+section{
+    width:calc(~"100% - 140px");
+    float: left;
+    border-top: 1px solid #E3E0DB;
+    border-right: 1px solid #E3E0DB;
+
+    border-radius: 10px;
+    box-shadow: -10px 10px 5px #E3E0DB;
+    min-height: 420px;
+    box-sizing: border-box;
+    vertical-align: top;
+ 
+text-align: center;
+
+.column{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 15px;
+    display: inline-block;
+    vertical-align: top;
+text-align: start;
+ 
+}
+
+label{
+    font-weight: bold;
+    color:#333;
+}
+ul{
+
+    padding:10px 0;
+&.en{
+    text-align: left;
+}
+    li{
+line-height: 20px;
+background: #eee;
+margin-top: 4px;
+border-radius: 5px;
+padding:4px;
+    }
+}
+}
+
+    ul.tabs{
+        font-size: @size2;
+        width:140px;
+        float: right;
+    vertical-align: top;
+    padding:15px 0;
+    box-sizing: border-box;
+
+        li{
+            border-bottom: 1px solid #C9C9CB;
+            line-height: 24px;
+            a{
+                text-decoration: none;
+                color:#333;
+                font-weight: 100;
+            }
+        }
+    }
+
     }
 }
