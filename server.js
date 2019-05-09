@@ -144,9 +144,6 @@
 
         try {
           await this.authService.authorizeRequest(req);
-
-
-
         } catch (error) {
           cookies.set('access_token', '');
         }
@@ -162,6 +159,7 @@
             token: req.userToken,
             ip: req.ip(),
             useragent: req.useragent(),
+            host: req.headers.host,
             url: req.url,
             query: req.query,
             body: req.body,
