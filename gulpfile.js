@@ -1,21 +1,27 @@
-var less = require("gulp-less");
-var gulp = require("gulp");
-var path = require("path");
-var child = require("child_process");
-var fs = require("fs");
-var glob = require("glob");
-var postcss = require("gulp-postcss");
+const less = require("gulp-less");
+const gulp = require("gulp");
+const path = require("path");
+const child = require("child_process");
+const fs = require("fs");
+const glob = require("glob");
+const postcss = require("gulp-postcss");
+const livereload = require("gulp-livereload");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const xml2js = require("xml2js");
+const xmlParseString = xml2js.parseString;
+const jsdom = require("jsdom");
+const cheerio = require('cheerio')
 
-var livereload = require("gulp-livereload");
-var autoprefixer = require("autoprefixer");
-var cssnano = require("cssnano");
-
-var xml2js = require("xml2js");
-var xmlParseString = xml2js.parseString;
-var jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = new JSDOM("").window;
+const {
+  JSDOM
+} = jsdom;
+const {
+  window
+} = new JSDOM();
+const {
+  document
+} = new JSDOM("").window;
 
 global.document = document;
 
@@ -50,7 +56,11 @@ var createSvgIconSetPartial = async () => {
       return new Promise((resolve, reject) => {
         var svgContent = fs.readFileSync(filePath).toString();
 
+
+
+
         var originalSvg = $($.parseXML(svgContent)).find("svg");
+
 
         var svgPosix = filePath
           .replace(/\\/g, "/")
@@ -69,13 +79,43 @@ var createSvgIconSetPartial = async () => {
 
         var svgId = `svg-${svgPosix}`;
 
+
+        ///////////////////
+
+
+
+
+        var $svg = cheerio('svg', svgContent);
+
+        $svg.attr('id', svgId);
+        $svg.removeAttr('xmlns');
+        $svg.removeAttr('xlink');
+  
+
+        var style = $svg.find('defs').remove().find('style').html() || '';
+
+
         fs.writeFileSync(
           path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-          //  resXml
-          `<img src="/assets/svg${relativeFilePath}" />`
+          cheerio('<div />').append($svg).html()
         );
 
+        lessToWrite += `\n#${svgId}{ ${style} }\n`;
+
+
+        console.log("bundling svg as hbs: " + svgId);
+
         return resolve();
+
+
+        ///////////////////
+
+        // fs.writeFileSync(
+        //   path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
+        // `<img src="/assets/svg${relativeFilePath}" />`
+        // );
+
+
 
         var style = $($.parseXML(svgContent))
           .find("style")
@@ -92,8 +132,8 @@ var createSvgIconSetPartial = async () => {
           xml.svg.$ = {};
           xml.svg.$.id = svgId;
           xml.svg.$.viewBox = originalSvg.attr("viewBox");
-          if (originalSvg.attr("style"))
-            xml.svg.$.style = originalSvg.attr("style");
+          // if (originalSvg.attr("style"))
+          //   xml.svg.$.style = originalSvg.attr("style");
 
           var resXml = builder.buildObject(xml.svg);
           var lines = resXml.split("\n");
@@ -132,7 +172,9 @@ var compileLess = () => {
     .pipe(livereload());
 };
 var minifyCss = function () {
-  var plugins = [autoprefixer({ browsers: ["last 1 version"] }), cssnano()];
+  var plugins = [autoprefixer({
+    browsers: ["last 1 version"]
+  }), cssnano()];
 
   return gulp
     .src("./assets/less/dist/bundle.css")
@@ -145,6 +187,7 @@ gulp.task("postcss", minifyCss);
 gulp.task("less", compileLess);
 
 let server;
+
 function run(done) {
 
   if (server && server.kill) server.kill();
@@ -155,8 +198,7 @@ function run(done) {
       "node_modules/serendip-web/bin/server.js"
       // "--tunnel",
       // "--tunnel-subdomain=serendip-agency"
-    ],
-    {
+    ], {
       stdio: "inherit"
     }
   );
