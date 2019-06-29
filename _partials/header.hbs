@@ -1,8 +1,21 @@
- 
-
 <header data-aos="fade-bottom">
 
-    <div class="inner">
+    <div class="inner container">
+
+
+        <a href="/" title="Serendip Agency" class="logo">
+            {{> svg-logo-logo-tagline-2}}
+        </a>
+        
+        <div id="nav-toggle" class="active" title="نمایش منو" data-aos-duration="700" data-aos="fade-in">
+            <div class="bg"> {{> svg-menu-globe-4}}</div>
+            <div class="ufo-1">
+                {{> svg-ufo-12}}
+            </div>
+            <div class="ufo-2">
+                {{> svg-ufo-12}}
+            </div>
+        </div>
 
         <a class="account" href="/account" title="ورود به داشبورد serendip.cloud">
             {{> svg-2}}
@@ -16,6 +29,36 @@
             {{/if}}
         </a>
 
+
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="">
+                        خانه
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="">
+                        وبلاگ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        تعرفه‌ها
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        سوالات متداول
+                    </a>
+                </li>
+
+            </ul>
+        </div>
         <div class="search" title="جست و جو در سایت">
 
             <input type="text" dir="rtl" placeholder="جست و جو" id="search-text" id="">
@@ -24,9 +67,6 @@
         </div>
 
 
-        <a href="/" title="Serendip Agency" class="logo">
-            {{> svg-logo-logo-tagline-5}}
-        </a>
 
     </div>
 </header>

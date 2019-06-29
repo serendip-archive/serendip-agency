@@ -1,1 +1,10 @@
-{}
+{
+    "newsletter": {
+        "title": "خبرنامه سرندیپ",
+        "p": "با عضویت در خبرنامه،   از آخرین اخبار و مقالات   ما مطلع شوید.",
+        "buttonText": "عضویت",
+        "inputPlaceholder": "your_email@example.com",
+        "note": "اگر در ارتباط با خبرنامه و مقالات سرندیپ پرسشی دارید، مشتاقانه پذیرای شما خواهیم بود.",
+        "noteEmail": "newsletter@serendip.agency"
+    }
+}

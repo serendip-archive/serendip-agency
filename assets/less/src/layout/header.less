@@ -1,98 +1,223 @@
 body.nav-active {
-  header {
-  }
+  header {}
 }
 
 header {
-  position: fixed;
-  width: auto;
+  width  : auto;
   z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top    : 0;
+  left   : 0;
+  width  : 100%;
+
   .inner {
-    background: #fff;
-    padding: 10px 10px 5px 10px;
-    box-sizing: border-box;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    padding-right: 65px;
-    margin: 0 45px;
+    padding         : 20px 10px 10px 10px;
+    box-sizing      : border-box;
+    // box-shadow   : 0 5px 20px rgba(0, 0, 0, 0.15);
+
 
     &:after {
-      clear: both;
+      clear  : both;
       display: block;
       content: " ";
     }
   }
 
+  div#nav-toggle {
+    cursor          : pointer;
+    position        : relative;
+    float           : right;
+    border-radius   : 100%;
+    // box-shadow   : -10px -10px 10px rgba(221, 221, 221, 0.5) inset;
+    background      : #000;
+
+    // box-shadow: -10px -10px 10px rgba(221, 221, 221, 0.5) inset,
+    // -5px 5px 30px rgba(100, 100, 100, 0.4);
+
+
+    z-index: 101;
+
+    width : 50px;
+    height: 50px;
+
+    content: " ";
+    display: block;
+    border : none;
+    outline: none;
+
+    display: none;
+
+
+    .bg {
+      position: absolute;
+      top     : 0;
+      left    : 0;
+      width   : 100%;
+      height  : 100%;
+      content : ' ';
+      z-index : -1;
+      display : none;
+    }
+
+    .ufo-1,
+    .ufo-2 {
+      display      : block;
+      height       : 18px;
+      position     : absolute;
+      left         : 20%;
+      width        : 60%;
+      // background: #dbbb82;
+
+      content         : " ";
+      transform-origin: center center;
+      transition      : all cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+
+      img {
+        max-width : 100%;
+        max-height: 100%;
+        width     : auto;
+        margin    : 0 auto;
+        display   : block;
+        // filter : drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+      }
+    }
+
+    .ufo-1 {
+      top: 16px;
+    }
+
+    .ufo-2 {
+      top: 30px;
+    }
+
+    &:hover .ufo-1,
+    &:active .ufo-1 {
+      animation-name           : closeBefore;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+      animation-duration       : 1.1s;
+      animation-delay          : 0;
+    }
+
+    &:hover .ufo-2,
+    &:active .ufo-2 {
+      animation-name           : closeAfter;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-out;
+
+      animation-delay   : 0;
+      animation-duration: 2.3s;
+    }
+
+    &.active .ufo-2 {
+      transform    : rotate(-45deg);
+      border-radius: 100%;
+      top          : calc(~"50% - 7px");
+      animation    : none;
+    }
+
+    &.active .ufo-1 {
+      transform: rotate(45deg);
+      top      : calc(~"50% - 7px");
+      animation: none;
+    }
+  }
+
   img {
     vertical-align: top;
-    width: 100%;
+    width         : 100%;
   }
+
+  .menu {
+    float      : right;
+    line-height: 40px;
+
+    ul {
+
+      li {
+        display: inline-block;
+        margin : 0 30px;
+
+        a {
+          color          : #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
   .account {
-    float: right;
-    text-align: center;
-    line-height: 0;
+    float          : right;
+    text-align     : center;
+    line-height    : 0;
     text-decoration: none;
-    cursor: pointer;
-    height: 40px;
+    cursor         : pointer;
+    height         : 40px;
+
     span {
       line-height: 7px;
-      font-size: @size1;
+      font-size  : @size1;
       font-weight: 100;
-    color:#000;
+      color      : #fff;
     }
+
     svg,
     img {
-      width: 30px;
-      height: 30px;
-      display: block;
-      padding: 4px;
-      margin: 0 auto;
+      width     : 30px;
+      height    : 30px;
+      display   : block;
+      padding   : 4px;
+      margin    : 0 auto;
       box-sizing: border-box;
+      filter    : invert(1);
     }
   }
+
   .logo {
-    float: left;
-    text-align: left;
+    float          : left;
+    text-align     : left;
     text-decoration: none;
-    display: block;
-    font-family: sans-serif;
-    font-size: @size5;
-    height: 100%;
-    color: transparent;
-    width: 175px;
+    display        : block;
+    font-family    : sans-serif;
+    font-size      : @size5;
+    height         : 100%;
+    color          : transparent;
+    width          : 175px;
+
     img,
     svg {
-      width: auto;
+      width : auto;
       margin: 0 auto 0 0;
       filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
     }
   }
+
   .search {
-    float: right;
-    width: 40%;
-    max-width: 180px;
-    position: relative;
+    float       : right;
+    width       : 40%;
+    max-width   : 180px;
+    position    : relative;
     margin-right: 10px;
+    display     : none;
+
     input {
       vertical-align: top;
-      width: 100%;
-      box-sizing: border-box;
-      height: 40px;
-      width: 100%;
-      border-radius: 30px;
-      border: 1px solid #ddd;
-      outline: none;
-      padding: 0 40px 0 10px;
+      width         : 100%;
+      box-sizing    : border-box;
+      height        : 40px;
+      width         : 100%;
+      border-radius : 30px;
+      border        : 1px solid #ddd;
+      outline       : none;
+      padding       : 0 40px 0 10px;
     }
+
     svg,
     img {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 10px;
-      right: 10px;
+      width   : 20px;
+      height  : 20px;
+      top     : 10px;
+      right   : 10px;
     }
   }
 }
@@ -100,23 +225,47 @@ header {
 @media (max-width: 700px) {
   header {
     .inner {
-      margin: 0 15px;
-      padding:5px;
-      padding-right: 55px;
+      margin    : 0;
+      padding   : 5px;
+      text-align: center
     }
+
     .logo {
-      width: auto;
-      padding: 6px 2px;
+      width     : auto;
+      padding   : 10px 0;
       box-sizing: border-box;
-      height:44px;
+      height    : 60px;
+      float     : none;
+      svg,img{
+      margin:0 auto;
+
+      }
     }
 
     .account {
+      float: none;
+      display: inline-block;
+      vertical-align: bottom;
+      position: absolute;
+      top:10px;
+      right:0;
       img {
         height: 30px;
-        width: 30px;
+        width : 30px;
       }
     }
+
+    .menu {
+      float: none;
+      display: inline-block;
+
+      ul {
+        li {
+          margin: 0 10px;
+        }
+      }
+    }
+
     .search {
       display: none;
     }

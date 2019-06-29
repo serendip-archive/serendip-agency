@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    {{> head}}
+
+</head>
+
+<body>
+
+    {{> loader}}
+    {{> nav}}
+    {{> header}}
+
+    <div class="inner-body">
+        <div id="home-page">
+            {{> home-astro}}
+
+            {{> home-crm}}
+
+
+            {{#if data.home.businessNavigator.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/29.svg" alt="" class="full-pic"> --}}
+                    {{> svg-29}}
+                    <a href="" class="more primary"></a>
+                </div>
+                <div class="block text">
+
+                    <div class="subtitle">
+                        {{unsafe data.home.businessNavigator.subtitle }}
+                    </div>
+                    <p>
+                        {{unsafe data.home.businessNavigator.p }}
+                    </p>
+                    <a href="" class="more secondary"></a>
+
+                </div>
+            </div>
+
+            {{/if}}
+
+            {{#if data.home.communicationChannelEngineering.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+
+                <div class="block text">
+
+                    <div class="subtitle">
+                        {{unsafe data.home.communicationChannelEngineering.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.communicationChannelEngineering.p}}
+                    </p>
+                    <a href="" class="more secondary"></a>
+
+                </div>
+
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/34.svg" alt="" class="full-pic"> --}}
+                    {{> svg-34}}
+
+                </div>
+
+            </div>
+            {{/if}}
+
+
+
+            {{!-- <img src="/assets/svg/35.svg" alt="" data-aos-duration="500" data-aos="fade-in"
+                class="banner"> --}}
+
+
+            <div class="banner" data-aos-duration="500" data-aos="fade-in">
+                {{> svg-35}}
+            </div>
+
+
+            {{#if data.home.toolForDigitalMarketing.visible }}
+
+            <div class="double-block has-fixed" data-aos-duration="500" data-aos="fade-in">
+
+
+                <div class="block pic fixed-left">
+                    {{!-- <img src="/assets/svg/36.svg" alt="" class="full-pic"> --}}
+                    {{> svg-36}}
+                </div>
+                <div class="block text static-right">
+                    <div class="subtitle">
+                        {{unsafe data.home.toolForDigitalMarketing.subtitle}}
+
+                    </div>
+                    <p>
+                        {{unsafe data.home.toolForDigitalMarketing.p}}
+                    </p>
+
+                </div>
+
+            </div>
+            {{/if}}
+
+            {{> home-advantages}}
+
+            {{> home-technologies}}
+
+
+            {{#if data.home.serendipIsAlwaysFree.visible }}
+
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/74.svg" alt="" class="full-pic"> --}}
+                    {{> svg-74}}
+
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.serendipIsAlwaysFree.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.serendipIsAlwaysFree.p}}
+                    </p>
+
+                    <a href="" class="start primary"></a>
+                </div>
+
+            </div>
+            {{/if}}
+
+            {{#if data.home.offlineFirst.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.offlineFirst.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.offlineFirst.p}}
+                    </p>
+                    <a href="" class="more primary"></a>
+                </div>
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/77.svg" alt="" class="full-pic"> --}}
+                    {{> svg-77}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.MobileFirst.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/80.svg" alt="" class="full-pic"> --}}
+                    {{> svg-80}}
+
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.MobileFirst.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.MobileFirst.p}}
+                    </p>
+                    <a href="" class="more primary"></a>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.customizeForYourBusiness.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.customizeForYourBusiness.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.customizeForYourBusiness.p}} </p>
+                </div>
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/83.svg" alt="" class="full-pic"> --}}
+                    {{> svg-83}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.twoFactorAuth.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.twoFactorAuth.subtitle}}
+
+                    </div>
+                    <p>
+
+                        {{unsafe data.home.twoFactorAuth.p}}
+                    </p>
+
+                </div>
+                <div class="block pic ">
+                    {{!-- <img src="/assets/svg/84.svg" alt="" class="full-pic"> --}}
+
+
+                    {{> svg-84}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.thirdPartyIntegration.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{> svg-85}}
+
+                    {{!-- <img src="/assets/svg/85.svg" alt="" class="full-pic"> --}}
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.thirdPartyIntegration.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.thirdPartyIntegration.p}} </p>
+                </div>
+            </div>
+            {{/if}}
+            {{#if data.home.googleMaps.visible }}
+
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+
+
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.googleMaps.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.googleMaps.p}} </p>
+                </div>
+
+
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/86.svg" class="full-pic" alt=""> --}}
+
+                    {{> svg-86}}
+
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{> newsletter}}
+
+
+
+
+        </div>
+
+
+
+        {{> footer}}
+
+    </div>
+
+
+
+
+</body>
+{{> scripts}}
+
+</html>
