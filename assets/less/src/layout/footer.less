@@ -1,62 +1,69 @@
 footer#footer {
-  margin: 0;
-  padding: 60px 0;
+  margin    : 0;
+  padding   : 60px 0;
   box-sizing: border-box;
   background: #453e5d;
 
   .subtitle {
     color: #fff;
   }
+
   p {
     color: #eee;
   }
-  .copyleft {
-    text-align: center;
-    direction: ltr;
-    margin: 10px auto 0 auto;
-    padding-top: 10px;
-    border-top: 1px solid #776884;
-    max-width: 400px;
-    font-size: @size1;
 
-    color: #e3e0db;
+  .copyleft {
+    text-align : center;
+    direction  : ltr;
+    margin     : 10px auto 0 auto;
+    padding-top: 10px;
+    border-top : 1px solid #776884;
+    max-width  : 400px;
+    font-size  : @size1;
+
+    color         : #e3e0db;
     letter-spacing: 4px;
+
     p {
       text-align: center;
     }
+
     a {
-      color: #e3e0db;
-      border-bottom: 1px solid #ddd;
+      color          : #e3e0db;
+      border-bottom  : 1px solid #ddd;
       text-decoration: none;
-      vertical-align: top;
-      display: inline-block;
+      vertical-align : top;
+      display        : inline-block;
     }
+
     .flip {
       vertical-align: top;
-      transform: rotateY(180deg);
-      display: inline-block;
-      margin: 0 5px;
+      transform     : rotateY(180deg);
+      display       : inline-block;
+      margin        : 0 5px;
     }
   }
 
   .blocks {
-    float: left;
+    float         : left;
     vertical-align: top;
-    max-width: 360px;
-    border-right: 4px solid rgba(255, 255, 255, 0.05);
-    padding-right: 30px;
-    box-sizing: border-box;
-    padding: 30px;
+    max-width     : 360px;
+    border-right  : 4px solid rgba(255, 255, 255, 0.05);
+    padding-right : 30px;
+    box-sizing    : border-box;
+    padding       : 30px;
 
     &:after {
-      clear: both;
+      clear  : both;
       display: block;
       content: " ";
     }
+
     .block {
       margin-bottom: 30px;
+
       &:after {
-        clear: both;
+        clear  : both;
         display: block;
         content: " ";
       }
@@ -64,57 +71,59 @@ footer#footer {
       .subtitle {
         margin-bottom: 5px;
       }
+
       p {
         padding: 5px 0;
-        font-weight: 100;
       }
 
       input {
-        border: none;
-        display: block;
-        margin: 10px 0;
-        padding: 5px 10px;
-        width: 100%;
+        border    : none;
+        display   : block;
+        margin    : 10px 0;
+        padding   : 5px 10px;
+        width     : 100%;
         box-shadow: -3px 3px 0 #eee;
         background: #fff;
       }
 
       a.button,
       button {
-        float: left;
-        display: block;
-        margin: 5px 0;
-        padding: 5px 10px;
+        float      : left;
+        display    : block;
+        margin     : 5px 0;
+        padding    : 5px 10px;
         line-height: 20px;
-        box-shadow: -3px 3px 0 #b89a73;
-        background: #dbbb82;
-        color: #000;
+        box-shadow : -3px 3px 0 #b89a73;
+        background : #dbbb82;
+        color      : #000;
         font-weight: 500;
-        font-size: @size4;
-        border: none;
-        outline: none;
-        cursor: pointer;
+        font-size  : @size4;
+        border     : none;
+        outline    : none;
+        cursor     : pointer;
       }
     }
   }
+
   .links {
     vertical-align: top;
-    width: calc(~"100% - 360px");
+    width         : calc(~"100% - 360px");
 
-    float: right;
-    padding: 30px;
+    float     : right;
+    padding   : 30px;
     box-sizing: border-box;
 
     ul {
       li {
-        padding: 0;
+        padding    : 0;
         line-height: 18px;
-        margin: 10px 0;
+        margin     : 10px 0;
+
         a {
           text-decoration: none;
-          color: #fff;
-          font-weight: 100;
-          font-size: @size3;
+          color          : #fff;
+
+          font-size: @size4;
 
           &:hover {
             border-bottom: 1px solid #fff;
@@ -125,32 +134,34 @@ footer#footer {
   }
 
   .socials {
-    margin: 40px 0 0 0;
+    margin    : 40px 0 0 0;
     text-align: center;
+
     a {
       display: inline-block;
-      width: 30px;
-      height: 30px;
-      margin: 5px 10px;
+      width  : 30px;
+      height : 30px;
+      margin : 5px 10px;
     }
   }
 }
+
 @media (max-width: 700px) {
   footer#footer {
     .blocks {
       border-right: none;
-      margin: 0;
-      padding: 0 15px;
-      float: none;
-      max-width: 100%;
+      margin      : 0;
+      padding     : 0 15px;
+      float       : none;
+      max-width   : 100%;
     }
 
     .links {
-      border-top: 4px solid rgba(255, 255, 255, 0.05);
-      margin: 0;
-      padding: 0 15px;
+      border-top : 4px solid rgba(255, 255, 255, 0.05);
+      margin     : 0;
+      padding    : 0 15px;
       padding-top: 25px;
-      width: 100%;
+      width      : 100%;
     }
   }
 }

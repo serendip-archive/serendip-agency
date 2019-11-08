@@ -569,25 +569,31 @@ window.onscroll = function() {
     ((window.scrollY + 400) / document.querySelector("body").scrollHeight) *
     100;
 
-  if (scrollLoader < 10) {
-    document
-      .querySelector("header .scroll-line")
-      .setAttribute("style", "width:0");
-  } else {
-    if (scrollLoader > 90)
+  if (document.querySelector("body").scrollHeight > window.innerHeight * 4)
+    if (scrollLoader < 10) {
       document
         .querySelector("header .scroll-line")
-        .setAttribute("style", "width:" + 100 + "%");
-    else
-      document
-        .querySelector("header .scroll-line")
-        .setAttribute("style", "width:" + scrollLoader + "%");
-  }
+        .setAttribute("style", "width:0");
+    } else {
+      if (scrollLoader > 90)
+        document
+          .querySelector("header .scroll-line")
+          .setAttribute("style", "width:" + 100 + "%");
+      else
+        document
+          .querySelector("header .scroll-line")
+          .setAttribute("style", "width:" + scrollLoader + "%");
+    }
 
-  if (window.scrollY > 160)
+  if (document.querySelector("body").scrollHeight > window.innerHeight * 4) {
+    if (window.scrollY > 160)
+      document.querySelector("body > header").classList.add("visible");
+    else document.querySelector("body > header").classList.remove("visible");
+  } else {
     document.querySelector("body > header").classList.add("visible");
-  else document.querySelector("body > header").classList.remove("visible");
+  }
 };
 window.onload = function() {
   init();
+  window.onscroll();
 };
