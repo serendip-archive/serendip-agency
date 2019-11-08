@@ -1,5 +1,18 @@
-<footer id="footer">
 
+<footer id="footer">
+<div class="cookie">
+    <p>
+        این وبسایت برای بهبود تجربه کاربری شما از کوکی‌ها استفاده می‌کند. ما فرض می‌کنیم که شما با استفاده از کوکی‌ها
+        مشکلی
+        ندارید؛ با این حال، در صورت تمایل می‌توانید کوکی‌ها را غیرفعال کنید.
+    </p>
+    <a href="">
+        {{> svg-footer-102}}
+    </a>
+    <a href="">
+        {{> svg-footer-104}}
+    </a>
+</div>
     <div class="container">
 
 
@@ -14,8 +27,8 @@
 
                 </p>
 
-                <a class="button">
-                    {{data.home.astro.button}}
+                <a class="btn">
+                    {{> svg-footer-106}}
                 </a>
 
             </div>
@@ -33,14 +46,13 @@
                     placeholder="{{data.newsletter.inputPlaceholder}}">
 
                 <button type="submit">
-                    {{ data.newsletter.buttonText}}
+                    {{> svg-footer-98}}
                 </button>
             </div>
 
 
             <div class="block">
                 <div class="subtitle">
-
                     {{ data.requestContact.title}}
                 </div>
 
@@ -51,7 +63,9 @@
                     placeholder="{{data.requestContact.inputPlaceholder}}">
 
                 <button type="submit">
-                    {{ data.requestContact.buttonText}}
+                    {{> svg-footer-99}}
+
+
                 </button>
             </div>
 

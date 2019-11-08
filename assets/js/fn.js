@@ -585,6 +585,14 @@ window.onscroll = function() {
           .setAttribute("style", "width:" + scrollLoader + "%");
     }
 
+  console.log(document.querySelector("body").scrollHeight - window.scrollY);
+
+  if (document.querySelector("body").scrollHeight - window.scrollY < 1800) {
+    document.querySelector(".cookie").classList.add("stick");
+  } else {
+    document.querySelector(".cookie").classList.remove("stick");
+  }
+
   if (document.querySelector("body").scrollHeight > window.innerHeight * 4) {
     if (window.scrollY > 160)
       document.querySelector("body > header").classList.add("visible");

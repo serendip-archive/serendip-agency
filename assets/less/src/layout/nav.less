@@ -209,18 +209,18 @@ nav#nav {
     width           : 140vw;
     // background   : rgba(87, 110, 158, 0.75);
     // background   : rgba(219, 186, 130, 0.85);
-    background      : #fff;
+    background      : rgba(255, 255, 255, 0.75);
     border-radius   : 0% 0 0 100%;
-    box-shadow   : 0 5px 10px rgba(0, 0, 0, 0.35);
+    box-shadow      : 0 5px 10px rgba(0, 0, 0, 0.35);
     z-index         : 0;
     transition      : all linear 0.5s;
   }
 
   ul {
-    position: absolute;
-    top     : 90px;
-    right   : 10px;
-    height: calc(100% - 110px);
+    position  : absolute;
+    top       : 90px;
+    right     : 10px;
+    height    : calc(100% - 110px);
     z-index   : 3;
     direction : ltr;
     width     : 300px;
@@ -259,7 +259,8 @@ nav#nav {
       }
 
       a {
-        font-size: @size4;
+        font-size: @size5;
+
 
         display        : block;
         text-decoration: none;
@@ -269,7 +270,7 @@ nav#nav {
         // text-shadow: -1px 1px 0px rgba(255, 255, 255, 0.5);
         height        : 44px;
         line-height   : 44px;
-        font-weight   : 300;
+        font-weight   : 500;
         position      : relative;
 
         &:after,

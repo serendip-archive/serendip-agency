@@ -107,6 +107,10 @@ body.nav-active {
 
 }
 
+.text-center {
+  text-align: center;
+}
+
 .subtitle {
   font-size  : @size6;
   font-weight: bold;
@@ -116,7 +120,7 @@ body.nav-active {
 
 p {
   font-size  : @size5;
-  line-height: 24px;
+  line-height: 1.8;
   color      : #333;
   text-align : start;
 }
@@ -265,6 +269,16 @@ pre {
 }
 
 @media (max-width: 700px) {
+
+  body {
+    font-size  : 11px;
+    line-height: 14px;
+  }
+
+  .title {
+    font-size: @size7;
+  }
+
   .inner-body {
     margin: 0 15px;
   }

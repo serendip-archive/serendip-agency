@@ -33,7 +33,11 @@
                 <div class="block pic">
                     {{!-- <img src="/assets/svg/29.svg" alt="" class="full-pic"> --}}
                     {{> svg-29}}
-                    <a href="" class="more primary"></a>
+
+                    <a class="img-btn">
+                        {{> svg-buttons-more-1}}
+                    </a>
+
                 </div>
                 <div class="block text">
 
@@ -43,7 +47,9 @@
                     <p>
                         {{unsafe data.home.businessNavigator.p }}
                     </p>
-                    <a href="" class="more secondary"></a>
+                    <a class="img-btn">
+                        {{> svg-buttons-more-2}}
+                    </a>
 
                 </div>
             </div>
@@ -61,7 +67,6 @@
                     <p>
                         {{unsafe data.home.communicationChannelEngineering.p}}
                     </p>
-                    <a href="" class="more secondary"></a>
 
                 </div>
 
@@ -104,6 +109,7 @@
 
                     </p>
 
+
                 </div>
 
             </div>
@@ -130,7 +136,9 @@
                         {{unsafe data.home.serendipIsAlwaysFree.p}}
                     </p>
 
-                    <a href="" class="start primary"></a>
+                    <a class="img-btn">
+                        {{> svg-buttons-start}}
+                    </a>
                 </div>
 
             </div>
@@ -145,7 +153,9 @@
                     <p>
                         {{unsafe data.home.offlineFirst.p}}
                     </p>
-                    <a href="" class="more primary"></a>
+                    <a class="img-btn">
+                        {{> svg-buttons-more-2}}
+                    </a>
                 </div>
                 <div class="block pic">
                     {{!-- <img src="/assets/svg/77.svg" alt="" class="full-pic"> --}}
@@ -169,8 +179,12 @@
                     <p>
                         {{unsafe data.home.MobileFirst.p}}
                     </p>
-                    <a href="" class="more primary"></a>
+                    <a class="img-btn">
+                        {{> svg-buttons-serendip-cloud}}
+                    </a>
                 </div>
+
+
             </div>
             {{/if}}
 
@@ -254,16 +268,47 @@
             </div>
             {{/if}}
 
-            {{> newsletter}}
 
+            <div class="start-using">
+
+                <div class="bg">
+                    {{> svg-start-95-1}}
+                </div>
+
+                <div class="content">
+
+                    <div class="version">
+                        <div class="icon"> {{> svg-start-94}}</div>
+                        {{> svg-start-94-1}}
+
+                    </div>
+
+                    <div class="title">
+                        به راحتی شروع کنید و رایگان ادامه دهید
+                    </div>
+
+                    <a href="">
+                        {{> svg-start-96}}
+                    </a>
+
+                </div>
+
+            </div>
 
 
 
         </div>
 
+        {{!-- {{> newsletter}} --}}
 
 
-        {{> footer}}
+
+
+    </div>
+
+
+
+    {{> footer}}
 
     </div>
 
