@@ -21,7 +21,7 @@
     "gulp-less": "^4.0.1",
     "gulp-livereload": "^4.0.1",
     "gulp-postcss": "^8.0.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "jsdom": "^13.1.0",
     "serendip-web": "^1.1.5",
     "xml2js": "^0.4.19"
