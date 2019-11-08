@@ -5,236 +5,259 @@
 <head>
 
     {{> head}}
-
+    
 </head>
 
 <body>
 
     {{> loader}}
-
+    {{> nav}}
+    {{> header}}
 
     <div class="inner-body">
-
-        {{> nav}}
-        {{> header}}
-
         <div id="home-page">
+            {{> home-astro}}
 
-            <section class="categories  ">
-                <div class="container">
-                    <div class="box">
-                        <ul>
-
-                            <li class="splitter">
-                                خدمات
-                            </li>
+            {{> home-crm}}
 
 
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-business-api.svg" alt="">
+            {{#if data.home.businessNavigator.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/29.svg" alt="" class="full-pic"> --}}
+                       {{> svg-29}}
+                    <a href="" class="more primary"></a>
+                </div>
+                <div class="block text">
 
-                                    سرویس ذخیره‌سازی فایل
-
-                                    <span class="badge">REST API</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-mail-agent.svg" alt="">
-
-                                    سرویس ارسال ایمیل
-                                    <span class="badge">REST API</span>
-
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-sms-agent.svg" alt="">
-                                    سرویس ارسال پیامک
-                                    <span class="badge">REST API</span>
-
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-sms-agent.svg" alt="">
-                                    سرویس دیتابیس
-                                    <span class="badge">REST API</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-business-client.svg" alt="">
-                                    سرویس مانیتورینگ زیرساخت
-                                    <span class="badge">REST API</span>
-                                </a>
-                            </li>
-
-
-
-
-
-
-                        </ul>
+                    <div class="subtitle">
+                        {{unsafe data.home.businessNavigator.subtitle }}
                     </div>
-
-                    <div class="box">
-                        <ul>
-
-
-
-                            <li class="splitter">
-                                محصولات
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-business-pwa.svg" alt="">
-                                    <div class="text">
-                                        <div class="title">
-                                            مدیریت ارتباط با مشتریان
-
-                                        </div>
-                                        <p>
-                                            تحلیل، مدیریت و ساخت تریگر بر روی رفتار مشتری شامل خدمات، فروش، شکایت و ...
-                                        </p>
-                                    </div>
-                                    <div class="clear"></div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-business-pwa.svg" alt="">
-
-                                    <div class="text">
-                                        <div class="title">
-                                            داشبورد داینامیک
-                                        </div>
-                                        <p>
-                                            داشبورد اتوماسیون کسب‌و‌کار خود را بدون نیاز به برنامه‌نویسی بسازید.
-                                            فرم‌ساز، گزارش‌ساز و نمودارهای خودکار سرندیپ در اختیار شما هستند.
-                                        </p>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </a>
-
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-framework-1.svg" alt="">
-
-                                    مدیریت فایل
-                                    <span class="badge">ANDROID</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-business-pwa.svg" alt="">
-                                    تقویم کاری
-                                    <span class="badge">ANDROID</span>
-                                </a>
-                            </li>
-
-
-
-
-
-                        </ul>
-                    </div>
-
-
-
-                    <div class="box en">
-                        <ul>
-
-                            <li class="splitter">
-                                Open source projects
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-framework-1.svg" alt="">
-                                    <div class="text">
-                                        <div class="title">
-                                            Serendip Framework
-                                        </div>
-                                        <p>
-                                            A Node.js web service framework written in typescript.
-                                        </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-web.svg" alt="">
-                                    <div class="text">
-                                        <div class="title">
-                                            Serendip Web
-                                        </div>
-                                        <p>
-                                            It's a lightweight web server for creating websites using handlebars and
-                                            javascript.
-                                        </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <img src="assets/logos/serendip-mongodb-provider.svg" alt="">
-                                    <div class="text">
-                                        <div class="title">
-                                            Serendip GridDB Provider
-                                        </div>
-                                        <p>
-                                            Grid database using remote stand alone MongoDB instances. </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </a>
-                            </li>
-
-
-                            <li class="more">
-                                <a href="">
-                                    more on github
-                                </a>
-                            </li>
-
-
-
-
-
-                        </ul>
-                    </div>
-
-
-                    <div class="clear"></div>
+                    <p>
+                        {{unsafe data.home.businessNavigator.p }}
+                    </p>
+                    <a href="" class="more secondary"></a>
 
                 </div>
-            </section>
+            </div>
 
-            <section class="solar">
-                <img src="assets/serendip-arch-galaxy-1.svg" alt="">
-            </section>
+            {{/if}}
+
+            {{#if data.home.communicationChannelEngineering.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+
+                <div class="block text">
+
+                    <div class="subtitle">
+                        {{unsafe data.home.communicationChannelEngineering.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.communicationChannelEngineering.p}}
+                    </p>
+                    <a href="" class="more secondary"></a>
+
+                </div>
+
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/34.svg" alt="" class="full-pic"> --}}
+                     {{> svg-34}}
+
+                </div>
+
+            </div>
+            {{/if}}
+
+
+
+            {{!-- <img src="/assets/svg/35.svg" alt="" data-aos-duration="500" data-aos="fade-in"
+                class="banner"> --}}
+         
+
+            <div class="banner"  data-aos-duration="500" data-aos="fade-in">
+                      {{> svg-35}}
+            </div>
+
+
+            {{#if data.home.toolForDigitalMarketing.visible }}
+
+            <div class="double-block has-fixed" data-aos-duration="500" data-aos="fade-in" >
+
+
+                <div class="block pic fixed-left">
+                    {{!-- <img src="/assets/svg/36.svg" alt="" class="full-pic"> --}}
+                  {{> svg-36}}
+                </div>
+                <div class="block text static-right">
+                    <div class="subtitle">
+                        {{unsafe data.home.toolForDigitalMarketing.subtitle}}
+
+                    </div>
+                    <p>
+                        {{unsafe data.home.toolForDigitalMarketing.p}}
+
+                    </p>
+
+                </div>
+
+            </div>
+            {{/if}}
+
+            {{> home-advantages}}
+
+            {{> home-technologies}}
+
+
+            {{#if data.home.serendipIsAlwaysFree.visible }}
+
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/74.svg" alt="" class="full-pic"> --}}
+                                  {{> svg-74}}
+
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.serendipIsAlwaysFree.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.serendipIsAlwaysFree.p}}
+                    </p>
+
+                    <a href="" class="start primary"></a>
+                </div>
+
+            </div>
+            {{/if}}
+
+            {{#if data.home.offlineFirst.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.offlineFirst.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.offlineFirst.p}}
+                    </p>
+                    <a href="" class="more primary"></a>
+                </div>
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/77.svg" alt="" class="full-pic"> --}}
+                                  {{> svg-77}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.MobileFirst.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/80.svg" alt="" class="full-pic"> --}}
+                                    {{> svg-80}}
+
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.MobileFirst.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.MobileFirst.p}}
+                    </p>
+                    <a href="" class="more primary"></a>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.customizeForYourBusiness.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.customizeForYourBusiness.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.customizeForYourBusiness.p}} </p>
+                </div>
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/83.svg" alt="" class="full-pic"> --}}
+                              {{> svg-83}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.twoFactorAuth.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.twoFactorAuth.subtitle}}
+
+                    </div>
+                    <p>
+
+                        {{unsafe data.home.twoFactorAuth.p}}
+                    </p>
+
+                </div>
+                <div class="block pic ">
+                    {{!-- <img src="/assets/svg/84.svg" alt="" class="full-pic"> --}}
+                  
+
+                  {{> svg-84}}
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if data.home.thirdPartyIntegration.visible }}
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+                <div class="block pic">
+                                 {{> svg-85}}
+
+                    {{!-- <img src="/assets/svg/85.svg" alt="" class="full-pic"> --}}
+                </div>
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.thirdPartyIntegration.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.thirdPartyIntegration.p}} </p>
+                </div>
+            </div>
+            {{/if}}
+            {{#if data.home.googleMaps.visible }}
+
+            <div class="double-block" data-aos-duration="700" data-aos="fade-in">
+
+
+                <div class="block text">
+                    <div class="subtitle">
+                        {{unsafe data.home.googleMaps.subtitle}}
+                    </div>
+                    <p>
+                        {{unsafe data.home.googleMaps.p}} </p>
+                </div>
+
+
+                <div class="block pic">
+                    {{!-- <img src="/assets/svg/86.svg" class="full-pic" alt=""> --}}
+
+                                 {{> svg-86}}
+
+
+                </div>
+            </div>
+            {{/if}}
+
+            {{> newsletter}}
+
+
 
 
         </div>
+
+
+
         {{> footer}}
+
     </div>
 
 
