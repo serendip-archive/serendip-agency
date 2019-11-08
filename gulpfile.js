@@ -11,17 +11,11 @@ const cssnano = require("cssnano");
 const xml2js = require("xml2js");
 const xmlParseString = xml2js.parseString;
 const jsdom = require("jsdom");
-const cheerio = require('cheerio')
+const cheerio = require("cheerio");
 
-const {
-  JSDOM
-} = jsdom;
-const {
-  window
-} = new JSDOM();
-const {
-  document
-} = new JSDOM("").window;
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = new JSDOM("").window;
 
 global.document = document;
 
@@ -33,6 +27,7 @@ var readDirWithGlob = pathPattern => {
   });
 };
 var createSvgIconSetPartial = async () => {
+  console.log('createSvgIconSetPartial ...');
   var svgDirPath = path.join(__dirname, "assets", "svg");
   var partialsPath = path.join(__dirname, "_partials", "svg");
   var lessPath = path.join(
@@ -54,13 +49,9 @@ var createSvgIconSetPartial = async () => {
   await Promise.all(
     svgs.map(filePath => {
       return new Promise((resolve, reject) => {
-        var svgContent = fs.readFileSync(filePath).toString();
+        // var svgContent = fs.readFileSync(filePath).toString();
 
-
-
-
-        var originalSvg = $($.parseXML(svgContent)).find("svg");
-
+        // var originalSvg = $($.parseXML(svgContent)).find("svg");
 
         var svgPosix = filePath
           .replace(/\\/g, "/")
@@ -72,50 +63,46 @@ var createSvgIconSetPartial = async () => {
           .replace(/\\/g, "/")
           .replace(svgDirPath.replace(/\\/g, "/"), "");
 
-
-
-
         if (svgPosix.startsWith("-")) svgPosix = svgPosix.substr(1);
 
         var svgId = `svg-${svgPosix}`;
 
+        // ///////////////////
 
-        ///////////////////
+        // var $svg = cheerio("svg", svgContent);
 
+        // $svg.attr("id", svgId);
+        // $svg.removeAttr("xmlns");
+        // $svg.removeAttr("xlink");
 
-
-
-        var $svg = cheerio('svg', svgContent);
-
-        $svg.attr('id', svgId);
-        $svg.removeAttr('xmlns');
-        $svg.removeAttr('xlink');
-  
-
-        var style = $svg.find('defs').remove().find('style').html() || '';
-
-
-        fs.writeFileSync(
-          path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-          cheerio('<div />').append($svg).html()
-        );
-
-        lessToWrite += `\n#${svgId}{ ${style} }\n`;
-
-
-        console.log("bundling svg as hbs: " + svgId);
-
-        return resolve();
-
-
-        ///////////////////
+        // var style =
+        //   $svg
+        //     .find("defs")
+        //     .remove()
+        //     .find("style")
+        //     .html() || "";
 
         // fs.writeFileSync(
         //   path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
-        // `<img src="/assets/svg${relativeFilePath}" />`
+        //   cheerio("<div />")
+        //     .append($svg)
+        //     .html()
         // );
 
+        // lessToWrite += `\n#${svgId}{ ${style} }\n`;
 
+        // console.log("bundling svg as hbs: " + svgId);
+
+        // return resolve();
+
+        ///////////////////
+
+        fs.writeFileSync(
+          path.join(partialsPath, svgId.replace("svg-", "") + ".hbs"),
+          `<img src="/assets/svg${relativeFilePath}" />`
+        );
+
+        return resolve();
 
         var style = $($.parseXML(svgContent))
           .find("style")
@@ -171,10 +158,13 @@ var compileLess = () => {
     .pipe(gulp.dest("./assets/less/dist/"))
     .pipe(livereload());
 };
-var minifyCss = function () {
-  var plugins = [autoprefixer({
-    browsers: ["last 1 version"]
-  }), cssnano()];
+var minifyCss = function() {
+  var plugins = [
+    autoprefixer({
+      browsers: ["last 1 version"]
+    }),
+    cssnano()
+  ];
 
   return gulp
     .src("./assets/less/dist/bundle.css")
@@ -189,7 +179,6 @@ gulp.task("less", compileLess);
 let server;
 
 function run(done) {
-
   if (server && server.kill) server.kill();
 
   server = child.spawn(
@@ -198,30 +187,29 @@ function run(done) {
       "node_modules/serendip-web/bin/server.js"
       // "--tunnel",
       // "--tunnel-subdomain=serendip-agency"
-    ], {
+    ],
+    {
       stdio: "inherit"
     }
   );
 
   if (done) done();
-
 }
 
-gulp.task('run', run);
-
-
+gulp.task("run", run);
 
 gulp.task("default", async () => {
   livereload.listen();
 
   gulp.watch(["./assets/less/src/**/*.less"], gulp.series("less", "postcss"));
 
-  gulp.watch('server.js', gulp.series("run"));
+  gulp.watch(["./assets/svg/**/*.svg"], createSvgIconSetPartial);
+
+  gulp.watch("server.js", gulp.series("run"));
 
   await createSvgIconSetPartial();
   compileLess();
   minifyCss();
 
   run();
-
 });

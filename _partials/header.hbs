@@ -1,5 +1,3 @@
- 
-
 <header data-aos="fade-bottom">
 
     <div class="inner">
@@ -7,13 +5,13 @@
         <a class="account" href="/account" title="ورود به داشبورد serendip.cloud">
             {{> svg-2}}
 
-            {{#unless data.req.user}}
+            {{!-- {{#unless data.req.user}}
             <span>ورود</span>
             {{/unless}}
 
             {{#if data.req.user}}
             <span>حساب</span>
-            {{/if}}
+            {{/if}} --}}
         </a>
 
         <div class="search" title="جست و جو در سایت">
@@ -25,8 +23,11 @@
 
 
         <a href="/" title="Serendip Agency" class="logo">
-            {{> svg-logo-logo-tagline-5}}
+            {{> svg-logo-logo-fa-2}}
         </a>
 
+        <div class="scroll-line">
+
+        </div>
     </div>
 </header>
