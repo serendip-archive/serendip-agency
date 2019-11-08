@@ -16,12 +16,13 @@
 }
 
 #home-astro {
-  position  : relative;
+  position: relative;
 
   .bg {
     width    : 100%;
     position : relative;
     display  : block;
+    filter   : drop-shadow(0 0 10px #D5C19E);
     // filter: drop-shadow(0 1px 10px rgba(190, 162, 113, 0.4));
   }
 
@@ -102,18 +103,22 @@
 
   .start {
     position  : absolute;
-    bottom    : -100px;
+    bottom    : 100px;
     right     : 0;
     width     : 100%;
     text-align: right;
     box-sizing: border-box;
     padding   : 30px;
 
+    a {
+      width  : 140px;
+      display: block;
+    }
+
     .title {
       color      : #333;
       font-weight: 900;
-      line-height: 30px;
-      height     : 30px;
+margin-bottom: 20px;      
     }
   }
 }
