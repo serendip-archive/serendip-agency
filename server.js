@@ -11,35 +11,6 @@
     }
 
     async start() {
-      this.modules.SBC.DbService.options = {
-        defaultProvider: "Mongodb",
-        providers: {
-          Mongodb: {
-            object: new this.modules.SMP.MongodbProvider(),
-            options: {
-              mongoDb: process.env["db.mongoDb"],
-              mongoUrl: process.env["db.mongoUrl"],
-              authSource: process.env["db.authSource"],
-              user: process.env["db.user"],
-              password: process.env["db.password"]
-            }
-          }
-        }
-      };
-
-      const dbService = new this.modules.SBC.DbService();
-
-      await dbService.start();
-
-
-      this.authService = new this.modules.SF.AuthService(dbService);
-
-      await this.authService.start();
-
-
-      this.modules.sbc = {
-        db: dbService
-      };
 
       this.modules.handlebars.registerHelper("rpd", string => {
         return (this.modules.utils.text.replaceEnglishDigitsWithPersian(string));
